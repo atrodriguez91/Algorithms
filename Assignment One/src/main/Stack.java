@@ -3,7 +3,7 @@ package Algorithms.src;
 
 public class Stack {
 
-    static Node top;
+    static NodeLists top;
 
     static boolean isEmpty() {
         if (top == null) {

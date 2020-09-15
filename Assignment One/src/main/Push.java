@@ -1,13 +1,13 @@
 package Algorithms.src;
 
 public class Push {
-    public Node top;
+    public NodeLists top;
     
 
     void push() {
-        Node n = new Node();
+        NodeLists n = new NodeLists();
         n.item = "A";
-        Node oldTop = this.top;
+        NodeLists oldTop = this.top;
         n.next = oldTop;
         this.top = n;
         
