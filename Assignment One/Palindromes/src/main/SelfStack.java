@@ -26,8 +26,9 @@ public class SelfStack<S> implements FullStack {
     }
 
     @Override
-    public void push(Object value) {
-        // TODO Auto-generated method stub
+    public void push(S value) {
+        this.previous = new SelfStack<S>(this.previous, this.value);
+        this.value = value;
 
     }
 
