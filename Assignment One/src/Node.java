@@ -17,5 +17,17 @@ public Node tail = null;
 
 public void addPoint(String item) {
     Node newPoint = new Node(item);
+
+    if(head == null) {
+        head = newPoint;
+        tail = newPoint;
+    } else {
+        tail.next = newPoint;
+        tail = newPoint;
+    }
 }
+
+
+
+
 }
