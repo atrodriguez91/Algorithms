@@ -27,7 +27,22 @@ public void addPoint(String item) {
     }
 }
 
+public void display() {
+    Node current = head;
 
+    if(head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+
+    System.out.println("Current list: ");
+
+    while(current !=  null) {
+        System.out.printlin(current.item + " ");
+        current = current.next;
+    }
+    System.out.println();
+}
 
 
 }
