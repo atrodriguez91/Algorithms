@@ -1,4 +1,4 @@
-package Algorithms.src;
+package main;
 
 
 import java.io.File;

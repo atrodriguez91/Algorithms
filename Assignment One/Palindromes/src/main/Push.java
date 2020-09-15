@@ -1,4 +1,4 @@
-package Algorithms.src;
+package main;
 
 public class Push {
     public NodeLists top;
