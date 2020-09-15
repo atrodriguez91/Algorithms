@@ -1,22 +1,22 @@
 package Algorithms.src;
 
-public class Node {
+public class NodeLists {
 
     String item;
-    Node next;
+    NodeLists next;
 
-    Node(String item) {
+    NodeLists(String item) {
         this.item = item;
         this.next = null;
     }
     
 
 
-public Node head = null;
-public Node tail = null;
+public NodeLists head = null;
+public NodeLists tail = null;
 
 public void addPoint(String item) {
-    Node newPoint = new Node(item);
+    NodeLists newPoint = new NodeLists(item);
 
     if(head == null) {
         head = newPoint;
@@ -28,7 +28,7 @@ public void addPoint(String item) {
 }
 
 public void display() {
-    Node current = head;
+    NodeLists current = head;
 
     if(head == null) {
         System.out.println("List is empty");
