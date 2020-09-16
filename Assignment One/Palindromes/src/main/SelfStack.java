@@ -1,20 +1,14 @@
 package main;
 
-interface FullStack<S> {
-    void push(S value);
-    S pop();
-    S peek();
-    boolean isEmpty();
-    int size();
-    int search(Object o);
-}
 
-public class SelfStack<S> implements FullStack {
+public class SelfStack<S>  {
 
     SelfStack<S> previous;
     S value;
 
-    SelfStack() {}
+    SelfStack() {
+        
+    }
 
     SelfStack(S value) {
         this.value = value;
@@ -25,41 +19,70 @@ public class SelfStack<S> implements FullStack {
         this.value = value;
     }
 
-    @Override
+    
     public void push(S value) {
         this.previous = new SelfStack<S>(this.previous, this.value);
         this.value = value;
 
     }
 
-    @Override
-    public Object pop() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Object peek() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public int size() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public int search(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
     
+    public S pop() {
+        if (this.isEmpty())
+            throw new IllegalArgumentException("Stack is empty");
+
+        S top = this.value;
+        this.value = this.previous.value;
+        this.previous = this.previous.previous;
+
+        return top;
+    }
+
+   
+    public S peek() {
+        return this.value;
+    }
+
+   
+    public boolean isEmpty() {
+        return this.previous == null;
+    }
+
+    
+    public int size() {
+        return this.isEmpty() ? 0: 1 + this.previous.size();
+    }
+
+    
+    public int search(Object o) {
+        int count = 1;
+
+        for (SelfStack<S> stack = this; !stack.isEmpty(); stack = stack.previous) {
+            if(stack.value.equals(o))
+                return count;
+            count ++;
+        }   
+        return -1;
+    }
+
+	
+    public static void main(String[] args) {
+        SelfStack<Integer> selfStack = new SelfStack<Integer>();
+
+        System.out.println(selfStack.isEmpty());
+
+        selfStack.push(2);
+        selfStack.push(5);
+        selfStack.push(7);
+        selfStack.push(16);
+
+        System.out.println(selfStack.size());
+
+        System.out.println(selfStack.peek());
+
+        selfStack.pop();
+
+        
+
+    }
 }
