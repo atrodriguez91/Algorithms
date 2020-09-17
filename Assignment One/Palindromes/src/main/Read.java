@@ -33,10 +33,10 @@ public class Read {
         Queue q = new Queue(100);
         q.enqueue((ArrayList<String>) newList);
 
-        if (stack.peek() != q.peek()) {
+        if (stack.peek() != q.peek()) { 
             stack.pop();
             q.dequeue();
-            System.out.println(stack.peek() + q.dequeue());
+            
         }
 
         System.out.println(stack.peek());
