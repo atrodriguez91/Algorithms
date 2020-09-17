@@ -28,12 +28,16 @@ public class Read {
 
         file.close();
 
-        String[] allLines = newList.toArray(new String[0]);
-
         SelfStack<String> stack = new SelfStack<String>();
-        stack.push((ArrayList<String>) newList);
+        stack.push(newList);
         Queue q = new Queue(100);
         q.enqueue((ArrayList<String>) newList);
+
+        if (stack.peek() != q.peek()) {
+            stack.pop();
+            q.dequeue();
+            System.out.println(stack.peek() + q.dequeue());
+        }
 
         System.out.println(stack.peek());
         //System.out.println(q.peek());

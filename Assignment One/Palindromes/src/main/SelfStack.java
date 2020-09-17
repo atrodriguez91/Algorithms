@@ -5,25 +5,25 @@ import java.util.List;
 public class SelfStack<S>  {
 
     SelfStack<S> previous;
-    S value;
+    String value;
 
     SelfStack() {
         
     }
 
     SelfStack(S value) {
-        this.value = value;
+        this.value = (String) value;
     }
 
     SelfStack(SelfStack<S> previous, S value) {
         this.previous = previous;
-        this.value = value;
+        this.value = (String) value;
     }
 
     
     public void push(List<String> newList) {
-        this.previous = new SelfStack<S>(this.previous, this.value);
-        this.value = (S) newList;
+        this.previous = new SelfStack<S>(this.previous, (S) this.value);
+        this.value = newList.toString();
 
     }
 
@@ -32,7 +32,7 @@ public class SelfStack<S>  {
         if (this.isEmpty())
             throw new IllegalArgumentException("Stack is empty");
 
-        S top = this.value;
+        S top = (S) this.value;
         this.value = this.previous.value;
         this.previous = this.previous.previous;
 
@@ -41,7 +41,7 @@ public class SelfStack<S>  {
 
    
     public S peek() {
-        return this.value;
+        return (S) this.value;
     }
 
    

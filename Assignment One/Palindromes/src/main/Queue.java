@@ -25,9 +25,10 @@ public class Queue {
         
     }
 
-    public void dequeue() {
+    public String dequeue() {
         front = (front + 1) % capacity;
         count--;
+        return arr[front];
     }
 
     public String peek() {
