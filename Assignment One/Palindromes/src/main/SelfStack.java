@@ -1,5 +1,6 @@
 package main;
 
+import java.util.List;
 
 public class SelfStack<S>  {
 
@@ -20,9 +21,9 @@ public class SelfStack<S>  {
     }
 
     
-    public void push(S value) {
+    public void push(List<String> newList) {
         this.previous = new SelfStack<S>(this.previous, this.value);
-        this.value = value;
+        this.value = (S) newList;
 
     }
 
@@ -70,11 +71,6 @@ public class SelfStack<S>  {
         SelfStack<Integer> selfStack = new SelfStack<Integer>();
 
         System.out.println(selfStack.isEmpty());
-
-        selfStack.push(2);
-        selfStack.push(5);
-        selfStack.push(7);
-        selfStack.push(16);
 
         System.out.println(selfStack.size());
 

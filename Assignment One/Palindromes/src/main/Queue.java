@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Queue {
     String[] arr;
     int front;
@@ -15,9 +18,9 @@ public class Queue {
         capacity = size;
     }
 
-    public void enqueue(String item) {
+    public void enqueue(ArrayList<String> newList) {
         rear = (rear + 1) % capacity;
-        arr[rear] = item;
+        arr[rear] = newList.toString();
         count++;
         
     }
@@ -34,10 +37,7 @@ public class Queue {
     public static void main(String[] args) {
         Queue q = new Queue(3);
 
-        q.enqueue("a");
-        q.enqueue("b");
-        q.enqueue("c");
-        q.enqueue("d");
+       
 
         System.out.println(q.peek());
         q.dequeue();

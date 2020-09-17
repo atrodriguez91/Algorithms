@@ -31,10 +31,14 @@ public class Read {
         String[] allLines = newList.toArray(new String[0]);
 
         SelfStack<String> stack = new SelfStack<String>();
-        stack.push(allLines);
+        stack.push((ArrayList<String>) newList);
         Queue q = new Queue(100);
-        q.enqueue(line);
+        q.enqueue((ArrayList<String>) newList);
 
+        System.out.println(stack.peek());
+        //System.out.println(q.peek());
+
+        
         
 
 
