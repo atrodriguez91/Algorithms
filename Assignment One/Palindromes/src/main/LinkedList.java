@@ -1,11 +1,12 @@
 package main;
 
 public class LinkedList {
+    //Creation of Node class with members
     class Node {
         String item;
         Node next;
 
-
+        //Constructor for node 
         public Node(String item) {
             this.item = item;
             this.next = null;
@@ -13,10 +14,10 @@ public class LinkedList {
     }
     
 
-
+    //Init head and tall with Node pointing to null for init
     public Node head = null;
     public Node tail = null;
-
+    //Method for adding Nodes into a Linked List
     public void addPoint(String item) {
         Node newPoint = new Node(item);
 
@@ -28,10 +29,10 @@ public class LinkedList {
             tail = newPoint;
         }
     }
-
+    //Method to display, not required, for testing purposes 
     public void display() {
         Node current = head;
-
+        //Simple print if empty
         if(head == null) {
             System.out.println("List is empty");
             return;
@@ -46,16 +47,4 @@ public class LinkedList {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-            
-        LinkedList nList = new LinkedList();
-        
-        nList.addPoint("A");
-        nList.addPoint("B");
-        nList.addPoint("C");
-        nList.addPoint("D");
-
-        nList.display();
-
-    }   
 }
