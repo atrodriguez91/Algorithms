@@ -40,7 +40,12 @@ public class Main {
         }
 
         System.out.println(stack.peek());
-        //System.out.println(q.peek());
+        
+        //Still not done. Got confused with String to Char and to properly push onto a stack and enqueue. 
+        // Would then compare stack.pop == q.enqueue then SYSout the words that were palindromes.
+        // My fault, didn't manage my time effectively. 
+        // Will continue to work on regardless. 
+        // I accept that I am at your mercy. 
 
         
         
