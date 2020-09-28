@@ -93,12 +93,7 @@ public class Sorting {
     public static String[] merge(String[] left, String[] right) {
         String[] result = new String[left.length + right.length];
 
-        String leftPointer, rightPointer, resultPointer;
-        leftPointer = rightPointer = resultPointer = 0;
-
-        while (leftPointer < left.length || rightPointer < right.length) {
-
-        }
+        
     }
 
     public static void flip(String[] a, int i, int j) {
