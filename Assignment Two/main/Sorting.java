@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Sorting {
     static String[] magicArray;
 
-    public static String[] Sorting() throws FileNotFoundException {
+    public static String[] findFile() throws FileNotFoundException {
         Scanner magicScan = new Scanner(new File("magicitems.txt"));
 
         ArrayList<String> magicList = new ArrayList<String>();
@@ -25,7 +25,7 @@ public class Sorting {
     }
 
     public static void selectionSort() throws FileNotFoundException {
-        Sorting();
+        findFile();
         for (int i = 0; i < magicArray.length; i++) {
             int spot = i;
             String low = magicArray[i];
@@ -42,7 +42,7 @@ public class Sorting {
     }
 
     public static void insertionSort() throws FileNotFoundException {
-        Sorting();
+        findFile();
         for ( int i = 1; i < magicArray.length; i++) {
             String sortedMagic = magicArray[i];
 
@@ -57,9 +57,10 @@ public class Sorting {
     }
 
     public static void merge(String[] magicArray, String[] left, String[] right) {
-        int x , y = 0;
+        int x = 0;
+        int y = 0;
         for (int i = 0; i < magicArray.length; i++) {
-            if (y >= right.length || (x < left.length && left[x].compareToIgnoreCase(right[b]) < 0)) {
+            if (y >= right.length || (x < left.length && left[x].compareToIgnoreCase(right[y]) < 0)) {
                 magicArray[i] = left[x];
                 x++;
             } else {
@@ -102,7 +103,7 @@ public class Sorting {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Sorting();
+        findFile();
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
         }
