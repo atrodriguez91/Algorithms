@@ -56,44 +56,17 @@ public class Sorting {
         
     }
 
-    public static String[] mergeSort(String[] magicArray) {
-        if (magicArray.length <= 1) {
-            return magicArray;
+    public static void merge(String[] magicArray, String[] left, String[] right) {
+        int x , y = 0;
+        for (int i = 0; i < magicArray.length; i++) {
+            if (y >= right.length || (x < left.length && left[x].compareToIgnoreCase(right[b]) < 0)) {
+                magicArray[i] = left[x];
+                x++;
+            } else {
+                magicArray[i] = right[y];
+                y++;
+            }
         }
-
-        int midpoint = magicArray.length / 2;
-
-        String[] left = new String[midpoint];
-        String[] right;
-
-        if (magicArray.length % 2 == 0) {
-            right = new String[midpoint];
-        } else {
-            right = new String[midpoint + 1];
-        }
-
-        for (int i = 0; i < midpoint; i++) {
-            left[i] = magicArray[i];
-        }
-
-        for (int j = 0; j < right.length; j++) {
-            right[j] = magicArray[midpoint + j];
-        }
-
-        String[] result = new String[magicArray.length];
-
-        left = mergeSort(left);
-        right = mergeSort(right);
-
-        result = merge(left, right);
-
-        return result;
-    }
-
-    public static String[] merge(String[] left, String[] right) {
-        String[] result = new String[left.length + right.length];
-
-        
     }
 
     public static void flip(String[] a, int i, int j) {
@@ -102,7 +75,7 @@ public class Sorting {
         a[j] = temp;
     }
 
-    public static String[] quickSort(String[] a, int start, int end) throws FileNotFoundException {
+    public static String[] quickSort(String[] a, int start, int end) {
         
         int i = start;
         int j = end;
@@ -139,11 +112,10 @@ public class Sorting {
         System.out.println("\n");
         //selectionSort();
         //insertionSort();
-        String[] quickMagic = Sorting();
-        quickSort(quickMagic, 0, quickMagic.length-1);
+        //mergeSort(magicArray);
 
-        for (int i = 0; i < quickMagic.length; i++) {
-            System.out.println(quickMagic[i] + " ");
+        for (int i = 0; i < magicArray.length; i++) {
+            System.out.println(magicArray[i] + " ");
         }
     }
 }
