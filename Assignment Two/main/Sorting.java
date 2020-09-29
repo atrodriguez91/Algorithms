@@ -70,6 +70,27 @@ public class Sorting {
         }
     }
 
+    public static void mergeSort(String[] magicArray) {
+        if (magicArray.length > 1) {
+            // Creation of the left and right components of the array
+            // this divides and allows the divide and conquer approach
+            String[] left = new String[magicArray.length / 2];
+            String[] right = new String[magicArray.length - magicArray.length / 2];
+            //Iterate through the left array and init 
+            for (int i = 0; i < left.length; i++) {
+                left[i] = magicArray[i];
+            }
+            //Iterate through the right to get mid
+            for (int i = 0; i < right.length; i++) {
+                right[i] = magicArray[i + magicArray.length / 2];
+            }
+            //Last method to merge the left and right
+            mergeSort(left);
+            mergeSort(right);
+            merge(magicArray, left, right);
+        }
+    }
+
     public static void flip(String[] a, int i, int j) {
         String temp = a[i];
         a[i] = a[j];
@@ -103,6 +124,7 @@ public class Sorting {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        // Base
         findFile();
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
@@ -113,7 +135,7 @@ public class Sorting {
         System.out.println("\n");
         //selectionSort();
         //insertionSort();
-        //mergeSort(magicArray);
+        mergeSort(magicArray);
 
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
