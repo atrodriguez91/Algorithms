@@ -124,19 +124,26 @@ public class Sorting {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        // Base
+        // Base print of the array to compare later results to. 
         findFile();
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
         }
-
+//-------------------------------------------------------------------------
         System.out.println("\n");
         System.out.println("Now Sorting...");
         System.out.println("\n");
+//-------------------------------------------------------------------------
+        // Below are the different sorting methods. Uncomment each to use
+        // and test. Running multiple will get you a mess more magical
+        // than any array can provide. Guaranteed. 
+// ---- SORTING METHODS BELOW ----
+
         //selectionSort();
         //insertionSort();
         mergeSort(magicArray);
 
+// Print to term with the newly assorted array
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
         }
