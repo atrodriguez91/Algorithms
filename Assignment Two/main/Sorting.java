@@ -97,6 +97,32 @@ public class Sorting {
         }
     }
 
+    public static void qSort() {
+        int left = 0;
+        int right = magicArray.length - 1;
+
+        quickSort(left, right);
+    }
+
+    public static void quickSort(int left, int right) {
+        if (left >= right){
+            return;
+        }
+
+        String magicalPivot = conjureBarrier(left, right);
+        int magicBarrier = magicBarrier(left, right, magicalPivot);
+
+        quickSort(0, magicBarrier -1);
+        quickSort(magicBarrier + 1, right);
+    }
+
+    public static int magicalBarrier(int left, int right, String magicalPivot) {
+        int leftEnd = left - 1;
+        int rightEnd = right;
+        while (leftEnd < rightEnd) {
+            while (((Comparable<String)a))
+        }
+    }
     
 
     public static void main(String[] args) throws FileNotFoundException {
