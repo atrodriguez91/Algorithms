@@ -10,6 +10,8 @@ public class Sorting {
     static String[] magicArray;
 
     public static String[] findFile() throws FileNotFoundException {
+        // Taking the magical items and throwing them
+        // into the magicList. 
         Scanner magicScan = new Scanner(new File("magicitems.txt"));
 
         ArrayList<String> magicList = new ArrayList<String>();
@@ -17,6 +19,10 @@ public class Sorting {
         while (magicScan.hasNext()) {
             magicList.add(magicScan.nextLine());
         }
+
+        // Takingthe magical list and throwing them
+        // into a magical array from which the rest 
+        // of the program will use for neat tricks.
 
         magicArray = magicList.toArray(new String[0]);
 
@@ -91,37 +97,7 @@ public class Sorting {
         }
     }
 
-    public static void flip(String[] a, int i, int j) {
-        String temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
-
-    public static String[] quickSort(String[] a, int start, int end) {
-        
-        int i = start;
-        int j = end;
-
-        if (j - i >= 1) {
-            String axle = a[i];
-            while (j > i) {
-                while (a[i].compareTo(axle) <= 0 && i < end && j > i) {
-                    i++;
-                }
-                while (a[j].compareTo(axle) >= 0 && j > start && j >= i) {
-                    j--;
-                }
-                if (j > i) {
-                    flip(a, i, j);
-                }
-
-                flip(a, start, j);
-                quickSort(a, start, j - 1);
-                quickSort(a, j + 1, end);
-            }
-        }
-        return magicArray;
-    }
+    
 
     public static void main(String[] args) throws FileNotFoundException {
         // Base print of the array to compare later results to. 
@@ -149,5 +125,3 @@ public class Sorting {
         }
     }
 }
-
-        
