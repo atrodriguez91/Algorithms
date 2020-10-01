@@ -30,6 +30,21 @@ public class Sorting {
 
     }
 
+    public static void comparisons(String[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length -1; i++) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                count++;
+                if ((arr[j].compareTo(arr[j + 1]) < 0)) {
+                    String[] temp = arr[j].split("");
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp.toString();
+                }
+            }
+        }
+        System.out.print("\n\nComparisons: " + count);
+    }
+
     public static void selectionSort() throws FileNotFoundException {
         findFile();
         for (int i = 0; i < magicArray.length; i++) {
@@ -45,6 +60,8 @@ public class Sorting {
             magicArray[spot] = magicArray[i];
             magicArray[i] = low;
         }
+
+        comparisons(magicArray);
     }
 
     public static void insertionSort() throws FileNotFoundException {
@@ -59,6 +76,8 @@ public class Sorting {
             }
             magicArray[j] = sortedMagic;
         }
+
+        comparisons(magicArray);
         
     }
 
@@ -95,6 +114,8 @@ public class Sorting {
             mergeSort(right);
             merge(magicArray, left, right);
         }
+
+        comparisons(magicArray);
     }
 
     public static void qSort() {
@@ -120,7 +141,8 @@ public class Sorting {
         int leftEnd = left - 1;
         int rightEnd = right;
         while (leftEnd < rightEnd) {
-            while (((Comparable<String)a))
+            while(((Comparable<String>)magicalArray[++leftEnd]).compareTo(magicalPivot) < 0);
+
         }
     }
     
@@ -143,11 +165,11 @@ public class Sorting {
 
         //selectionSort();
         //insertionSort();
-        mergeSort(magicArray);
+        //mergeSort(magicArray);
 
 // Print to term with the newly assorted array
-        for (int i = 0; i < magicArray.length; i++) {
-            System.out.println(magicArray[i] + " ");
-        }
+        //for (int i = 0; i < magicArray.length; i++) {
+        //    System.out.println(magicArray[i] + " ");
+        //}
     }
 }
