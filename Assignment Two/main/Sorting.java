@@ -34,11 +34,12 @@ public class Sorting {
         int count = 0;
         for (int i = 0; i < arr.length -1; i++) {
             for (int j = 0; j < arr.length - 1; j++) {
-                count++;
+                
                 if ((arr[j].compareTo(arr[j + 1]) < 0)) {
                     String[] temp = arr[j].split("");
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp.toString();
+                    count++;
                 }
             }
         }
@@ -85,7 +86,7 @@ public class Sorting {
         int x = 0;
         int y = 0;
         for (int i = 0; i < magicArray.length; i++) {
-            if (y >= right.length || (x < left.length && left[x].compareToIgnoreCase(right[y]) < 0)) {
+            if (y >= right.length || (x < left.length && left[x].compareTo(right[y]) < 0)) {
                 magicArray[i] = left[x];
                 x++;
             } else {
@@ -164,7 +165,7 @@ public class Sorting {
 // ---- SORTING METHODS BELOW ----
 
         //selectionSort();
-        //insertionSort();
+        insertionSort();
         //mergeSort(magicArray);
 
 // Print to term with the newly assorted array
