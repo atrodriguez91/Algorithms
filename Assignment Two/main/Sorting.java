@@ -28,6 +28,8 @@ public class Sorting {
         return magicArray;
 
     }
+
+    
 // ---- METHOD TO CHECK COMPARISONS ---- //
     public static void comparisons(String[] arr) {
         int count = 0;
@@ -212,7 +214,7 @@ public class Sorting {
             return; 
             // SELECTion sort comparisons ---------------
         } else if (entry == 2) {
-            System.out.println("Generating Comparisons");
+            System.out.println("\nGenerating Comparisons");
             comparisons(selectionSort());
             // Display SORTED INSERTion list ------------
         } else if (entry == 3) {
@@ -227,7 +229,7 @@ public class Sorting {
             return;
             // INSERTion sort comparisons ---------------
         } else if (entry == 4) {
-            System.out.println("Generating Comparisons");
+            System.out.println("\nGenerating Comparisons");
             comparisons(insertionSort());
             // Display SORTED MERGE list ----------------
         } else if (entry == 5) {
@@ -242,7 +244,7 @@ public class Sorting {
             return;
             // MERGE sort comparisons -------------------
         } else if (entry == 6) {
-            System.out.println("Generating Comparisons");
+            System.out.println("\nGenerating Comparisons");
             comparisons(mergeSort(magicArray));
             // Display SORTED QUICK list ----------------
         } else if (entry == 7) {
@@ -257,38 +259,10 @@ public class Sorting {
             return;
             // QUICK sort comparisons -------------------
         } else if (entry == 8) {
-            System.out.println("Generating Comparisons");
+            System.out.println("\nGenerating Comparisons");
             comparisons(quickSort(magicArray, 0, magicArray.length - 1));
         }
-
         input.close();
-
-
-//-------------------------------------------------------------------------
-        //System.out.println("\n");
-        //System.out.println("Now Sorting...");
-        //System.out.println("\n");
-//-------------------------------------------------------------------------
-        // Below are the different sorting methods. Uncomment each to use
-        // and test. Running multiple will get you a mess more magical
-        // than any array can provide. Guaranteed. 
-
-// ---- SORTING METHODS BELOW ----
-
-        //selectionSort();
-        //insertionSort();
-        //mergeSort(magicArray);
-        //quickSort(magicArray, 0, magicArray.length - 1);
-
-// To see sorted list without comparisons: 
-//  1. Comment out comparisons() method from desired sort
-//  2. Uncomment the below Sysout/FOR loop
-//  3. Ensure desired sort is uncommented.
-// ---- SORTED LIST/ARRAY BELOW ----
-
-// Print to term with the newly assorted array
-        //for (int i = 0; i < magicArray.length; i++) {
-        //    System.out.println(magicArray[i] + " ");
-        //}
+        
     }
 }
