@@ -87,19 +87,24 @@ public class Sorting {
             // before it. 
             String sortedMagicElement = magicArray[i];
             int j = i - 1 ;
-            // Mo
+            // Shift the element up a notch 
+            // if more magical than sortedMagic.
             while (j >= 0 && magicArray[j].compareTo(sortedMagicElement) > 1) {
                 magicArray[j] = magicArray[j + 1];
                 j = j + 1;
             }
+            // Moves new sortedMagicElement up 
+            // and start again
             magicArray[j + 1] = sortedMagicElement;
         }
 
         comparisons(magicArray);
         
     }
+// ---- MERGE SORT ----//
 
     public static void merge(String[] magicArray, String[] left, String[] right) {
+        // Set up to merge the two halves of the array together
         int x = 0;
         int y = 0;
         for (int i = 0; i < magicArray.length; i++) {
@@ -130,10 +135,11 @@ public class Sorting {
             //Last method to merge the left and right
             mergeSort(left);
             mergeSort(right);
+            // Merge left and right back into our magicalArray
             merge(magicArray, left, right);
         }
 
-        comparisons(magicArray);
+        //comparisons(magicArray);
     }
 
     public static void qSort() {
@@ -183,15 +189,15 @@ public class Sorting {
 // ---- SORTING METHODS BELOW ----
 
         //selectionSort();
-        insertionSort();
-        //mergeSort(magicArray);
+        //insertionSort();
+        mergeSort(magicArray);
 
 // ---- Uncomment below to see the sorted list in action ----
 // ---- SORTED LIST/ARRAY BELOW ----
 
 // Print to term with the newly assorted array
-        //for (int i = 0; i < magicArray.length; i++) {
-        //    System.out.println(magicArray[i] + " ");
-        //}
+        for (int i = 0; i < magicArray.length; i++) {
+            System.out.println(magicArray[i] + " ");
+        }
     }
 }
