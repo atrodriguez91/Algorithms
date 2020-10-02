@@ -20,7 +20,7 @@ public class Sorting {
             magicList.add(magicScan.nextLine());
         }
 
-        // Takingthe magical list and throwing them
+        // Taking the magical list and throwing them
         // into a magical array from which the rest 
         // of the program will use for neat tricks.
 
@@ -74,18 +74,25 @@ public class Sorting {
         // comparions
         comparisons(magicArray);
     }
+// ---- INSERTION SORT ---- //
 
     public static void insertionSort() throws FileNotFoundException {
         findFile();
-        for ( int i = 1; i < magicArray.length; i++) {
-            String sortedMagic = magicArray[i];
-
-            int j = i;
-            while (j > 0 && magicArray[j -1].compareTo(sortedMagic) > 1) {
-                magicArray[j] = magicArray[j-1];
-                j--;
+        // We are to iterate over the array
+        // and compare each element with the one
+        // before it. 
+        for ( int i = 1; i < magicArray.length ; i++) {
+            // sortedMagicElement will be the element of the array
+            // that will be used to compare to the element
+            // before it. 
+            String sortedMagicElement = magicArray[i];
+            int j = i - 1 ;
+            // Mo
+            while (j >= 0 && magicArray[j].compareTo(sortedMagicElement) > 1) {
+                magicArray[j] = magicArray[j + 1];
+                j = j + 1;
             }
-            magicArray[j] = sortedMagic;
+            magicArray[j + 1] = sortedMagicElement;
         }
 
         comparisons(magicArray);
@@ -175,8 +182,8 @@ public class Sorting {
 
 // ---- SORTING METHODS BELOW ----
 
-        selectionSort();
-        //insertionSort();
+        //selectionSort();
+        insertionSort();
         //mergeSort(magicArray);
 
 // ---- Uncomment below to see the sorted list in action ----
