@@ -1,0 +1,123 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT 435
+% Fall 2020
+% Lab Two
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper, 10pt,DIV=13]{scrartcl} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[lined,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+
+\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 422N.111 - Fall 2020 - Dr. Labouseur} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Assignment Two  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Anthony Rodriguez \\ \normalsize Anthony.rodriguez2@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   start 
+%---------------------------------------------------------------------------------------- 
+\section{Comparisons}
+\bigskip
+\begin{center}
+ \begin{tabular}{||c c c c||} 
+ \hline
+ Selection Sort & Insertion Sort & Merge Sort & Quick Sort \\ [0.5ex] 
+ \hline\hline
+ 428,367 & 426,637 & 428,367 & 428,367 \\ 
+ \hline
+
+\end{tabular}
+\end{center}
+
+\section{Run Time}
+\bigskip
+\begin{enumerate}
+   \item Selection Sort [ $O(n^2)$ ]
+   \begin{itemize}
+     \item Selection sort has a cubic order of growth. The act of swapping elements only is $O(n)$, a constant time. Where we get the most time is through the iterations. The cost for the first FOR loop is c1 and will executed n amount of times. The rest of the code besides the nested FOR loop executes n - 1 times. The time required for the nested FOR loop through every iteration is n - 1 (first iteration will be n), As code executes, the amount of time becomes n + (n - 1) + (n - 2)... etc. This is because on every iteration, an element is sorted and is removed from the unsorted array causing the total amount of unsorted elements to fall by 1. Eventually the total time for the loop will be n(n + 1) / 2. Since we don't care about constants, this translates to $O(n^2)$
+   \end{itemize}
+   \bigskip
+   \item Insertion Sort [ $O(n)$ / $O(n^2)$ ]
+   \begin{itemize}
+       \item Insertion sort somewhat varies running time depending on the input of the array. If the array is already mostly sorted, then the time required would be $O(n)$. As it compares elements and finds no swapping is required, the WHILE loop will not execute leaving the remaining code to have the above run-time. Worst case would be if the array requires the last element to be swapped resulting in a n - 1 and so on. Because the loop has to be iterated through the maximum number of times, we multiply those by (n - 1). At this point because of arithmetic progression, we can come to the conclusion that n(n - 1) / 2, which is $O(n^2)$.  
+   \end{itemize}
+   \bigskip
+    
+   \item Merge Sort [ $O(n * log(n))$ ]
+    \begin{itemize}
+        \item Merge sort requires dividing the length of the array by half which can be reflected by (log n). Once we take into account the amount of actions to be executed, we can represent that by stating: (log n + 1). Running tasks to find and merge arrays within the sort only results in $O(n)$. The combination of steps above achieves a run-time of n(log n + 1) and once carried over we find the asymptotic run-time above.  
+    \end{itemize}
+    \bigskip
+    \item Quick Sort [ $O(n^2)$ / $O(n * log(n))$ ]
+    \begin{itemize}
+        \item Because of the nature of partitioning and the chance of selecting an element that are the highest and/or lowest values, it would force code execution to happen on every instance of a swap. Starting from the beginning, we would have c * n (cost and time). Moving down the partition would result in c(n - 1) and so on. Similarly to Selection Sort and Insertion Sort, we represent the arithmetic progression causing $O(n^2)$. Concerning the best case, while the initial start of the code begins with c * n, the division of sub-arrays results in (2 * cn / 2). Each divide doubles the constant, since we don't care for them, we will eventually arrive to a similar run-time of Merge Sort $O(n * log(n))$.  
+    \end{itemize}
+\end{enumerate}
+
+
+\end{document}
