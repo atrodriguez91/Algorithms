@@ -29,13 +29,14 @@ public class Sorting {
         return magicArray;
 
     }
-
+// ---- METHOD TO CHECK COMPARISONS ---- //
     public static void comparisons(String[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length -1; i++) {
             for (int j = 0; j < arr.length - 1; j++) {
-                
-                if ((arr[j].compareTo(arr[j + 1]) < 0)) {
+                // Iterate through the inner loop to find the comparisons
+                // Since we are comparing the arrays below. 
+                if ((arr[j].compareTo(arr[j + 1]) < 0)) { 
                     String[] temp = arr[j].split("");
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp.toString();
@@ -45,23 +46,32 @@ public class Sorting {
         }
         System.out.print("\n\nComparisons: " + count);
     }
+// ---- SELECTION SORT ---- //
 
     public static void selectionSort() throws FileNotFoundException {
-        findFile();
+        findFile(); // Bringing the array in using a method
+        // First FOR loop iterates through the array
+        // Designates first index as starting point
         for (int i = 0; i < magicArray.length; i++) {
-            int spot = i;
-            String low = magicArray[i];
+            int spot = i; // Starting point
+            String low = magicArray[i]; // Init to first element
             for (int j = i + 1; j < magicArray.length; j++) {
+                // Comparing the strings lexicographyically
+                // Set the IF statement if one string is less
+                // than the other for the comparison
                 if (magicArray[j].compareTo(low) < 0) {
                     spot = j;
                     low = magicArray[j];
                 }
             }
-
+            // Make the swap once the string with 
+            // the lesser value is found
             magicArray[spot] = magicArray[i];
             magicArray[i] = low;
         }
-
+        // Finally we pass the sorted array 
+        // into our comparisons loop to count 
+        // comparions
         comparisons(magicArray);
     }
 
@@ -162,11 +172,15 @@ public class Sorting {
         // Below are the different sorting methods. Uncomment each to use
         // and test. Running multiple will get you a mess more magical
         // than any array can provide. Guaranteed. 
+
 // ---- SORTING METHODS BELOW ----
 
-        //selectionSort();
-        insertionSort();
+        selectionSort();
+        //insertionSort();
         //mergeSort(magicArray);
+
+// ---- Uncomment below to see the sorted list in action ----
+// ---- SORTED LIST/ARRAY BELOW ----
 
 // Print to term with the newly assorted array
         //for (int i = 0; i < magicArray.length; i++) {
