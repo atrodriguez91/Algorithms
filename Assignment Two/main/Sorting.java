@@ -3,7 +3,6 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Sorting {
@@ -48,7 +47,7 @@ public class Sorting {
     }
 // ---- SELECTION SORT ---- //
 
-    public static void selectionSort() throws FileNotFoundException {
+    public static String[] selectionSort() throws FileNotFoundException {
         findFile(); // Bringing the array in using a method
         // First FOR loop iterates through the array
         // Designates first index as starting point
@@ -72,11 +71,12 @@ public class Sorting {
         // Finally we pass the sorted array 
         // into our comparisons loop to count 
         // comparions
-        comparisons(magicArray);
+        //comparisons(magicArray);
+        return magicArray;
     }
 // ---- INSERTION SORT ---- //
 
-    public static void insertionSort() throws FileNotFoundException {
+    public static String[] insertionSort() throws FileNotFoundException {
         findFile();
         // We are to iterate over the array
         // and compare each element with the one
@@ -98,7 +98,8 @@ public class Sorting {
             magicArray[j + 1] = sortedMagicElement;
         }
 
-        comparisons(magicArray);
+        //comparisons(magicArray);
+        return magicArray;
         
     }
 // ---- MERGE SORT ----//
@@ -122,7 +123,7 @@ public class Sorting {
         }
     }
 
-    public static void mergeSort(String[] magicArray) {
+    public static String[] mergeSort(String[] magicArray) {
         if (magicArray.length > 1) {
             // Creation of the left and right components of the array
             // this divides and allows the divide and conquer approach
@@ -144,11 +145,12 @@ public class Sorting {
             merge(magicArray, left, right);
         }
 
-        comparisons(magicArray);
+        //comparisons(magicArray);
+        return magicArray;
     }
 // ---- QUICKSORT METHOD ---- //
 
-    public static void magicalPartition (String arr[], int behind, int top ) {
+    public static int magicalPartition(String[] arr, int behind, int top) {
         // This is the point of reference. Using the topmost 
         // element for comparisons
         String mPivot = arr[top];
@@ -166,12 +168,19 @@ public class Sorting {
         String swap = arr[i + 1];
         arr[i + 1] = arr[top];
         arr[top] = swap;
+        return i + 1;
     }
 
-    public static void quickSort(String arr[], int behind, int top) {
+    public static String[] quickSort(String arr[], int behind, int top) {
         if (behind < top) {
-            
+            int part = magicalPartition(arr, behind, top);
+
+            quickSort(arr, behind, part - 1);
+            quickSort(arr, part + 1, top);
         }
+
+        //comparisons(magicArray);
+        return magicArray;
     }
     
 
@@ -181,10 +190,32 @@ public class Sorting {
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
         }
+
+        System.out.println("\nSELECT YOUR SORT: ");
+        System.out.println("SELECT SORT: PRESS 1 (List), PRESS 2 (Comparisons");
+        System.out.println("INSERT SORT: I");
+        System.out.println("MERGE SORT: M");
+        System.out.println("QUICK SORT: Q");
+        Scanner input = new Scanner(System.in);
+        
+        int entry = input.nextInt();
+        if (entry == 1) {
+            System.out.println("\n");
+            System.out.println("Now Sorting...");
+            System.out.println("\n");
+            insertionSort();
+            for (int i = 0; i < magicArray.length; i++) {
+                System.out.println(magicArray[i] + " ");
+            } 
+            return; 
+        } else if (entry == 2) {
+            System.out.println("Generating Comparisons");
+            comparisons(insertionSort());;
+        }
 //-------------------------------------------------------------------------
-        System.out.println("\n");
-        System.out.println("Now Sorting...");
-        System.out.println("\n");
+        //System.out.println("\n");
+        //System.out.println("Now Sorting...");
+        //System.out.println("\n");
 //-------------------------------------------------------------------------
         // Below are the different sorting methods. Uncomment each to use
         // and test. Running multiple will get you a mess more magical
@@ -194,14 +225,18 @@ public class Sorting {
 
         //selectionSort();
         //insertionSort();
-        mergeSort(magicArray);
+        //mergeSort(magicArray);
+        //quickSort(magicArray, 0, magicArray.length - 1);
 
-// ---- Uncomment below to see the sorted list in action ----
+// To see sorted list without comparisons: 
+//  1. Comment out comparisons() method from desired sort
+//  2. Uncomment the below Sysout/FOR loop
+//  3. Ensure desired sort is uncommented.
 // ---- SORTED LIST/ARRAY BELOW ----
 
 // Print to term with the newly assorted array
-        for (int i = 0; i < magicArray.length; i++) {
-            System.out.println(magicArray[i] + " ");
-        }
+        //for (int i = 0; i < magicArray.length; i++) {
+        //    System.out.println(magicArray[i] + " ");
+        //}
     }
 }
