@@ -108,6 +108,10 @@ public class Sorting {
         int x = 0;
         int y = 0;
         for (int i = 0; i < magicArray.length; i++) {
+            // Comparison between the left anf right arrays to determine
+            // element order. If the index of the left array finds unsorted
+            // elements, sort them and increase the counter. 
+            // Otherwise, take the right array and merge to the main array.
             if (y >= right.length || (x < left.length && left[x].compareTo(right[y]) < 0)) {
                 magicArray[i] = left[x];
                 x++;
@@ -124,11 +128,12 @@ public class Sorting {
             // this divides and allows the divide and conquer approach
             String[] left = new String[magicArray.length / 2];
             String[] right = new String[magicArray.length - magicArray.length / 2];
-            //Iterate through the left array and init 
+            // Iterate through the left array and start
+            // from the very beginning
             for (int i = 0; i < left.length; i++) {
                 left[i] = magicArray[i];
             }
-            //Iterate through the right to get mid
+            //Iterate through the right half of the array
             for (int i = 0; i < right.length; i++) {
                 right[i] = magicArray[i + magicArray.length / 2];
             }
@@ -139,34 +144,33 @@ public class Sorting {
             merge(magicArray, left, right);
         }
 
-        //comparisons(magicArray);
+        comparisons(magicArray);
     }
+// ---- QUICKSORT METHOD ---- //
 
-    public static void qSort() {
-        int left = 0;
-        int right = magicArray.length - 1;
-
-        quickSort(left, right);
-    }
-
-    public static void quickSort(int left, int right) {
-        if (left >= right){
-            return;
+    public static void magicalPartition (String arr[], int behind, int top ) {
+        // This is the point of reference. Using the topmost 
+        // element for comparisons
+        String mPivot = arr[top];
+        // Creates a partition at the very end and 
+        // refers to the element right behind it. 
+        int i = behind - 1;
+        for (int j = behind; j < top; j++) {
+            if (arr[j].compareTo(mPivot) < 0) {
+                i++;
+                String swap = arr[i]; // 
+                arr[i] = arr[j];
+                arr[j] = swap;
+            }
         }
-
-        String magicalPivot = conjureBarrier(left, right);
-        int magicBarrier = magicBarrier(left, right, magicalPivot);
-
-        quickSort(0, magicBarrier -1);
-        quickSort(magicBarrier + 1, right);
+        String swap = arr[i + 1];
+        arr[i + 1] = arr[top];
+        arr[top] = swap;
     }
 
-    public static int magicalBarrier(int left, int right, String magicalPivot) {
-        int leftEnd = left - 1;
-        int rightEnd = right;
-        while (leftEnd < rightEnd) {
-            while(((Comparable<String>)magicalArray[++leftEnd]).compareTo(magicalPivot) < 0);
-
+    public static void quickSort(String arr[], int behind, int top) {
+        if (behind < top) {
+            
         }
     }
     
