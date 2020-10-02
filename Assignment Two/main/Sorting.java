@@ -192,26 +192,78 @@ public class Sorting {
         }
 
         System.out.println("\nSELECT YOUR SORT: ");
-        System.out.println("SELECT SORT: PRESS 1 (List), PRESS 2 (Comparisons");
-        System.out.println("INSERT SORT: I");
-        System.out.println("MERGE SORT: M");
-        System.out.println("QUICK SORT: Q");
+        System.out.println("SELECT SORT: PRESS 1 (List), PRESS 2 (Comparisons)");
+        System.out.println("INSERT SORT: PRESS 3 (List), PRESS 4 (Comparisons)");
+        System.out.println("MERGE SORT:  PRESS 5 (List), PRESS 6 (Comparisons)");
+        System.out.println("QUICK SORT:  PRESS 7 (List), PRESS 8 (Comparisons)");
         Scanner input = new Scanner(System.in);
         
         int entry = input.nextInt();
+        // Display SORTED SELECTion list ----------------
         if (entry == 1) {
+            System.out.println("\n");
+            System.out.println("Now Sorting...");
+            System.out.println("\n");
+            selectionSort();
+            for (int i = 0; i < magicArray.length; i++) {
+                System.out.println(magicArray[i] + " ");
+            } 
+            input.close();
+            return; 
+            // SELECTion sort comparisons ---------------
+        } else if (entry == 2) {
+            System.out.println("Generating Comparisons");
+            comparisons(selectionSort());
+            // Display SORTED INSERTion list ------------
+        } else if (entry == 3) {
             System.out.println("\n");
             System.out.println("Now Sorting...");
             System.out.println("\n");
             insertionSort();
             for (int i = 0; i < magicArray.length; i++) {
                 System.out.println(magicArray[i] + " ");
-            } 
-            return; 
-        } else if (entry == 2) {
+            }
+            input.close();
+            return;
+            // INSERTion sort comparisons ---------------
+        } else if (entry == 4) {
             System.out.println("Generating Comparisons");
-            comparisons(insertionSort());;
+            comparisons(insertionSort());
+            // Display SORTED MERGE list ----------------
+        } else if (entry == 5) {
+            System.out.println("\n");
+            System.out.println("Now Sorting...");
+            System.out.println("\n");
+            mergeSort(magicArray);
+            for (int i = 0; i < magicArray.length; i++) {
+                System.out.println(magicArray[i] + " ");
+            }
+            input.close();
+            return;
+            // MERGE sort comparisons -------------------
+        } else if (entry == 6) {
+            System.out.println("Generating Comparisons");
+            comparisons(mergeSort(magicArray));
+            // Display SORTED QUICK list ----------------
+        } else if (entry == 7) {
+            System.out.println("\n");
+            System.out.println("Now Sorting...");
+            System.out.println("\n");
+            quickSort(magicArray, 0, magicArray.length - 1);
+            for (int i = 0; i < magicArray.length; i++) {
+                System.out.println(magicArray[i] + " ");
+            }
+            input.close();
+            return;
+            // QUICK sort comparisons -------------------
+        } else if (entry == 8) {
+            System.out.println("Generating Comparisons");
+            comparisons(quickSort(magicArray, 0, magicArray.length - 1));
         }
+
+        input.close();
+
+
 //-------------------------------------------------------------------------
         //System.out.println("\n");
         //System.out.println("Now Sorting...");
