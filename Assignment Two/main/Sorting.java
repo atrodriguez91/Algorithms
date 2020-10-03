@@ -38,9 +38,9 @@ public class Sorting {
                 // Iterate through the inner loop to find the comparisons
                 // Since we are comparing the arrays below. 
                 if ((arr[j].compareTo(arr[j + 1]) < 0)) { 
-                    String[] temp = arr[j].split("");
+                    String[] temp = arr[j];
                     arr[j] = arr[j + 1];
-                    arr[j + 1] = temp.toString();
+                    arr[j + 1] = temp;
                     count++;
                 }
             }
@@ -108,14 +108,16 @@ public class Sorting {
 
     public static void merge(String[] magicArray, String[] left, String[] right) {
         // Set up to merge the two halves of the array together
-        int x = 0;
-        int y = 0;
+        // Merge and mergeSort were handled using the structure of the textbook's
+        // pseudocode with explanation/example from GeekstoGeeks.com.
+        int x, y; 
+        x = y = 0;
         for (int i = 0; i < magicArray.length; i++) {
             // Comparison between the left anf right arrays to determine
             // element order. If the index of the left array finds unsorted
             // elements, sort them and increase the counter. 
             // Otherwise, take the right array and merge to the main array.
-            if (y >= right.length || (x < left.length && left[x].compareTo(right[y]) < 0)) {
+            if (y >= right.length || (x < left.length && left[x].compareToIgnoreCase(right[y]) < 0)) {
                 magicArray[i] = left[x];
                 x++;
             } else {
@@ -126,6 +128,8 @@ public class Sorting {
     }
 
     public static String[] mergeSort(String[] magicArray) {
+        // Done with pseudocode from textbook (page 32 line 4 and 6) used
+        // to create bottom FOR loops. String init from GeekstoGeeks.com. 
         if (magicArray.length > 1) {
             // Creation of the left and right components of the array
             // this divides and allows the divide and conquer approach
@@ -140,7 +144,8 @@ public class Sorting {
             for (int i = 0; i < right.length; i++) {
                 right[i] = magicArray[i + magicArray.length / 2];
             }
-            //Last method to merge the left and right
+            // Last method to sort through the left and right arrays. 
+            // Below is straight from the pseudocode of the textbook. 
             mergeSort(left);
             mergeSort(right);
             // Merge left and right back into our magicalArray
@@ -159,10 +164,13 @@ public class Sorting {
         // Creates a partition at the very end and 
         // refers to the element right behind it. 
         int i = behind - 1;
+        // The below exchange was modeled from the pseudocode of the 
+        // textbook on page 171. It was then compared to an example
+        // from GeekstoGeeks.com and modified to pass Strings. 
         for (int j = behind; j < top; j++) {
             if (arr[j].compareTo(mPivot) < 0) {
-                i++;
-                String swap = arr[i]; // 
+                i = i + 1;
+                String swap = arr[i];  
                 arr[i] = arr[j];
                 arr[j] = swap;
             }
@@ -174,6 +182,8 @@ public class Sorting {
     }
 
     public static String[] quickSort(String arr[], int behind, int top) {
+        // The following was derived straight from the textbook
+        // on page 171 from pseudocode. 
         if (behind < top) {
             int part = magicalPartition(arr, behind, top);
 
