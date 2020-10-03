@@ -37,11 +37,12 @@ public class Sorting {
             for (int j = 0; j < arr.length - 1; j++) {
                 // Iterate through the inner loop to find the comparisons
                 // Since we are comparing the arrays below. 
-                if ((arr[j].compareTo(arr[j + 1]) < 0)) { 
-                    String[] temp = arr[j];
+                if ((arr[j].compareTo(arr[j + 1]) < 0)) {
+                    count++; 
+                    String[] temp = arr[j].split("");
                     arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    count++;
+                    arr[j + 1] = temp.toString();
+                    
                 }
             }
         }
