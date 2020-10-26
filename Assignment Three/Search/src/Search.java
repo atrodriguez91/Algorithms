@@ -57,11 +57,23 @@ public class Search {
         return magicArray;
     }
 
+    public static int linear(String[] magicArray, String x) {
+        for (int i = 0; i < magicArray.length; i++) {
+            if (magicArray[i].equals(x)) {
+                return i;
+            }   
+        }
+        return 0;
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
         for (int i = 0; i < magicArray.length; i++) {
             System.out.println(magicArray[i] + " ");
         }
+        int result = linear(magicArray, "Zales Might");
+        System.out.println(result);
     }
 }
