@@ -1,3 +1,5 @@
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -17,7 +19,10 @@ public class Search {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(magicArray);
+    public static void main(String[] args) throws FileNotFoundException {
+        findFile();
+        for (int i = 0; i < magicArray.length; i++) {
+            System.out.println(magicArray[i] + " ");
+        }
     }
 }
