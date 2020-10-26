@@ -67,13 +67,29 @@ public class Search {
 
     }
 
+    public static int binary(String[] magicArray, String x) {
+        int left = 0;
+        int right = magicArray.length - 1;
+        while (left <= right) {
+            int mid = left + (right - 1) / 2;
+            int value = x.compareTo(magicArray[mid]);
+            if (value == 0) {
+                return mid;
+            } else if (value > 0) {
+                return left = mid + 1;
+            } else {
+                value = mid - 1;
+            }
+
+        }
+        return 0;
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
-        for (int i = 0; i < magicArray.length; i++) {
-            System.out.println(magicArray[i] + " ");
-        }
-        int result = linear(magicArray, "Zales Might");
-        System.out.println(result);
+        int result = linear(magicArray, "Robe");
+        int bresult = binary(magicArray, "Scale Mail");
+        System.out.println("Item is located at index: " + bresult);
     }
 }
