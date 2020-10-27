@@ -71,16 +71,16 @@ public class Search {
         int left = 0;
         int right = magicArray.length - 1;
         while (left <= right) {
-            int mid = left + (right - 1) / 2;
-            int value = x.compareTo(magicArray[mid]);
-            if (value == 0) {
+            int mid = left + (right - left) / 2;
+            int val = x.compareTo(magicArray[mid]);
+            if (val == 0) {
                 return mid;
-            } else if (value > 0) {
-                return left = mid + 1;
-            } else {
-                value = mid - 1;
             }
-
+            if (val > 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
         return 0;
     }
@@ -88,8 +88,9 @@ public class Search {
     public static void main(String[] args) throws FileNotFoundException {
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
-        int result = linear(magicArray, "Robe");
-        int bresult = binary(magicArray, "Scale Mail");
-        System.out.println("Item is located at index: " + bresult);
+        String x = "Robe";
+        //int result = linear(magicArray, "Robe");
+        int result = Search.binary(magicArray, x);
+        System.out.println("Item is located at index: " + result);
     }
 }
