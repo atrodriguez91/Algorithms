@@ -113,19 +113,25 @@ public class Search {
         "Bowl of Purity", "Eyes of doom", "Dragon Cloak", "Blade", "Belt of Keeping", 
         "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
         "Sword of Life"};
-
+        
         for (int i = 0; i < randomList.length; i++) {
             int result1 = linear(magicArray, randomList[i]);
             System.out.println(randomList[i] + " is located at index: " + result1);
             System.out.println("Count is: " + linearComparisons);
         }
 
-        int average = linearComparisons / 42;
+        int average = linearComparisons / 41;
         System.out.println("The average count is: " + average);
+        
+        for (int i = 0; i < randomList.length; i++) {
+            int result = binary(magicArray, randomList[i]);
+            System.out.println(randomList[i] + " is located at index: " + result);
+            System.out.println("Count is: " + comparisons);
+        }
 
-
-        //String x = "Robe";
-        //int result = binary(magicArray, x);
+        int binaryAverage = comparisons / 41;
+        System.out.println("The average count is: " + binaryAverage);
+        
         //System.out.println("Item is located at index: " + result);
         //System.out.println("Count is: " + comparisons);
     }
