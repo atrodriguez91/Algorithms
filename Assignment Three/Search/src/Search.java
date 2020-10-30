@@ -113,6 +113,8 @@ public class Search {
         "Bowl of Purity", "Eyes of doom", "Dragon Cloak", "Blade", "Belt of Keeping", 
         "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
         "Sword of Life"};
+
+        System.out.println("\nLINEAR SEARCH COMPARISONS AND AVERAGE");
         
         for (int i = 0; i < randomList.length; i++) {
             int result1 = linear(magicArray, randomList[i]);
@@ -122,6 +124,10 @@ public class Search {
 
         int average = linearComparisons / 41;
         System.out.println("The average count is: " + average);
+        System.out.println("\nEND OF LINEAR REPORT");
+
+        System.out.println("\n=========================================");
+        System.out.println("\nBINARY SEARCH COMPARISONS AND AVERAGE");
         
         for (int i = 0; i < randomList.length; i++) {
             int result = binary(magicArray, randomList[i]);
@@ -131,6 +137,7 @@ public class Search {
 
         int binaryAverage = comparisons / 41;
         System.out.println("The average count is: " + binaryAverage);
+        System.out.println("\nEND OF BINARY REPORT");
         
         //System.out.println("Item is located at index: " + result);
         //System.out.println("Count is: " + comparisons);
