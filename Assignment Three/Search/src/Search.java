@@ -120,6 +120,9 @@ public class Search {
             System.out.println("Count is: " + linearComparisons);
         }
 
+        int average = linearComparisons / 42;
+        System.out.println("The average count is: " + average);
+
 
         //String x = "Robe";
         //int result = binary(magicArray, x);
