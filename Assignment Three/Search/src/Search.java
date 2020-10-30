@@ -98,7 +98,9 @@ public class Search {
             //Comparisons of the targe with mid array using
             //String methods. 
             int val = x.compareTo(magicArray[mid]);
-            //
+            //Below are the expressions to deduce the 
+            //String value and to make comparisons 
+            //if needed. 
             if (val == 0) {
                 comparisons++;
                 return mid;
@@ -119,7 +121,8 @@ public class Search {
     public static void main(String[] args) throws FileNotFoundException { 
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
-        
+        //Above is the sort used from the previous lab. Below is the "random"
+        // list chosen from the original. Everything below is original code. 
         String[] randomList = {"Ring of Sin' Sona","Chaos diamond","Sling of Slugging",
         "Instant Armour and Ring", "Cup of Change", "Darkskull", "Aerewens armor",
         "Efreeti bottle", "Sword Scabbard of Hiding", "Healing Totem", "Ring of the Maggot",
@@ -130,9 +133,10 @@ public class Search {
         "Bowl of Purity", "Eyes of doom", "Dragon Cloak", "Blade", "Belt of Keeping", 
         "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
         "Sword of Life"};
-
+        //Formatting skills are better than actual programming. 
         System.out.println("\nLINEAR SEARCH COMPARISONS AND AVERAGE");
-        
+        // Below loop iterates through the random list and generates a linear
+        // 
         for (int i = 0; i < randomList.length; i++) {
             int result1 = linear(magicArray, randomList[i]);
             System.out.println("[" + randomList[i]+ "]" + " is located at index: " + result1);
