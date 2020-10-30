@@ -160,6 +160,9 @@ public class Search {
         int binaryAverage = comparisons / 42;
         System.out.println("The average count is: " + binaryAverage);
         System.out.println("\nEND OF BINARY REPORT");
+
+        //I make an attempt and I'm absolutely not a fan of hashtables. I understand
+        // them, implementing them to do exactly what I would like is another story. 
         
         HashTableArray<String> table_hash = new HashTableArray<String>(250);
         
