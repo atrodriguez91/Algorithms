@@ -2,7 +2,10 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Search {
@@ -56,7 +59,11 @@ public class Search {
         //comparisons(magicArray);
         return magicArray;
     }
+    // Linear search function with the proper comparisons
     static int linearComparisons;
+    // This search iterates through the array with a target 
+    // String. Comparisons are counted if an equality between
+    // the array and target. 
     public static int linear(String[] magicArray, String x) {
         for (int i = 0; i < magicArray.length; i++) {
             linearComparisons++;
@@ -98,7 +105,7 @@ public class Search {
     }
 
     
-
+    
     public static void main(String[] args) throws FileNotFoundException { 
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
@@ -118,11 +125,11 @@ public class Search {
         
         for (int i = 0; i < randomList.length; i++) {
             int result1 = linear(magicArray, randomList[i]);
-            System.out.println(randomList[i] + " is located at index: " + result1);
+            System.out.println("[" + randomList[i]+ "]" + " is located at index: " + result1);
             System.out.println("Count is: " + linearComparisons);
         }
 
-        int average = linearComparisons / 41;
+        int average = linearComparisons / 42;
         System.out.println("The average count is: " + average);
         System.out.println("\nEND OF LINEAR REPORT");
 
@@ -131,15 +138,39 @@ public class Search {
         
         for (int i = 0; i < randomList.length; i++) {
             int result = binary(magicArray, randomList[i]);
-            System.out.println(randomList[i] + " is located at index: " + result);
+            System.out.println("[" + randomList[i] + "]" + " is located at index: " + result);
             System.out.println("Count is: " + comparisons);
         }
 
-        int binaryAverage = comparisons / 41;
+        int binaryAverage = comparisons / 42;
         System.out.println("The average count is: " + binaryAverage);
         System.out.println("\nEND OF BINARY REPORT");
         
-        //System.out.println("Item is located at index: " + result);
-        //System.out.println("Count is: " + comparisons);
+        HashTableArray<String> table_hash = new HashTableArray<String>(250);
+        
+        
+        String [] some = new String[666];
+        for (int i = 0; i < randomList.length; i++) {
+            some[i] = randomList[i];
+            
+        }
+        for (int i = 0; i < magicArray.length; i++ ){
+            table_hash.put(magicArray[i], i);
+            
+        }
+
+        for (int i = 0; i < table_hash.size; i++){
+            //System.out.println(table_hash.get(magicArray[i]));
+            if (Arrays.equals(magicArray, randomList)) {
+                table_hash.get(magicArray[i]);
+                //System.out.println(table_hash.get(magicArray[i]));
+                
+            }
+        }
+
+        System.out.println(table_hash.moreComparions);
+
+        
+        
     }
 }
