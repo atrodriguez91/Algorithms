@@ -136,26 +136,27 @@ public class Search {
         //Formatting skills are better than actual programming. 
         System.out.println("\nLINEAR SEARCH COMPARISONS AND AVERAGE");
         // Below loop iterates through the random list and generates a linear
-        // 
+        // search report with an index lookip and the comparisons counter. 
         for (int i = 0; i < randomList.length; i++) {
             int result1 = linear(magicArray, randomList[i]);
             System.out.println("[" + randomList[i]+ "]" + " is located at index: " + result1);
             System.out.println("Count is: " + linearComparisons);
         }
-
+        // The average calculation below
         int average = linearComparisons / 42;
         System.out.println("The average count is: " + average);
         System.out.println("\nEND OF LINEAR REPORT");
 
         System.out.println("\n=========================================");
         System.out.println("\nBINARY SEARCH COMPARISONS AND AVERAGE");
-        
+        // The loop below does the same as above but with the binary search function. 
+        // Similiarly, it generates a report for index and a counter.
         for (int i = 0; i < randomList.length; i++) {
             int result = binary(magicArray, randomList[i]);
             System.out.println("[" + randomList[i] + "]" + " is located at index: " + result);
             System.out.println("Count is: " + comparisons);
         }
-
+        // Below is the avg comparisons for the binary search. 
         int binaryAverage = comparisons / 42;
         System.out.println("The average count is: " + binaryAverage);
         System.out.println("\nEND OF BINARY REPORT");
