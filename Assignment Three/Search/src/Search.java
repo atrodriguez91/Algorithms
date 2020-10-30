@@ -99,13 +99,29 @@ public class Search {
 
     
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException { 
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
+        
+        String[] randomList = {"Ring of Sin' Sona","Chaos diamond","Sling of Slugging",
+        "Instant Armour and Ring", "Cup of Change", "Darkskull", "Aerewens armor",
+        "Efreeti bottle", "Sword Scabbard of Hiding", "Healing Totem", "Ring of the Maggot",
+        "Foolkiller", "Troll Jar", "Daggers of V", "Eyes of the eagle", "Kings Coinear",
+        "Bottle of air", "Hand of Tyr", "Robe", "Robe of Darkness", "Wood Wand", "Helm", 
+        "Small Axe", "Candle of truth", "Dust of illusion", "Ring of Air", "Casters Aid", 
+        "Chopper", "Wand of Bigby", "The Cup of Life", "Robe of eyes", "Torch Ring",
+        "Bowl of Purity", "Eyes of doom", "Dragon Cloak", "Blade", "Belt of Keeping", 
+        "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
+        "Sword of Life"};
+
+        for (int i = 0; i < randomList.length; i++) {
+            int result1 = linear(magicArray, randomList[i]);
+            System.out.println(randomList[i] + " is located at index: " + result1);
+            System.out.println("Count is: " + linearComparisons);
+        }
+
+
         //String x = "Robe";
-        int result1 = linear(magicArray, "Robe");
-        System.out.println("Item is located at index: " + result1);
-        System.out.println("Count is: " + linearComparisons);
         //int result = binary(magicArray, x);
         //System.out.println("Item is located at index: " + result);
         //System.out.println("Count is: " + comparisons);
