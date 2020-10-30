@@ -64,6 +64,8 @@ public class Search {
     // This search iterates through the array with a target 
     // String. Comparisons are counted if an equality between
     // the array and target. 
+    // This linear search was self created but used an example
+    // on GeekstoGeeks.com to ensure functionality.
     public static int linear(String[] magicArray, String x) {
         for (int i = 0; i < magicArray.length; i++) {
             linearComparisons++;
@@ -75,20 +77,28 @@ public class Search {
              
               
         }
-        
+        // Flag for testing purposes really.
         return 0;
 
     }
     static int comparisons = 0;
+    // Similar situation here. Used GeekstoGeeks.com for examples
+    //of properly functioning code. The binary search divides 
+    //the array in half to check if the target value is at mid. 
+    // If not, the function checks again whether the target 
+    // is lower or above the current index. 
     public static int binary(String[] magicArray, String x) {
         int left = 0;
         int right = magicArray.length - 1;
         while (left <= right) {
             
             comparisons++;
-
+            // Division of the array
             int mid = left + (right - left) / 2;
+            //Comparisons of the targe with mid array using
+            //String methods. 
             int val = x.compareTo(magicArray[mid]);
+            //
             if (val == 0) {
                 comparisons++;
                 return mid;
