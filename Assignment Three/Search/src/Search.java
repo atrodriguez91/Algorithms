@@ -56,41 +56,58 @@ public class Search {
         //comparisons(magicArray);
         return magicArray;
     }
-
+    static int linearComparisons;
     public static int linear(String[] magicArray, String x) {
         for (int i = 0; i < magicArray.length; i++) {
+            linearComparisons++;
             if (magicArray[i].equals(x)) {
+                linearComparisons++;;
                 return i;
-            }   
+                
+            }
+             
+              
         }
+        
         return 0;
 
     }
-
+    static int comparisons = 0;
     public static int binary(String[] magicArray, String x) {
         int left = 0;
         int right = magicArray.length - 1;
         while (left <= right) {
+            
+            comparisons++;
+
             int mid = left + (right - left) / 2;
             int val = x.compareTo(magicArray[mid]);
             if (val == 0) {
+                comparisons++;
                 return mid;
             }
             if (val > 0) {
+                comparisons++;
                 left = mid + 1;
             } else {
+                comparisons++;
                 right = mid - 1;
             }
         }
         return 0;
     }
 
+    
+
     public static void main(String[] args) throws FileNotFoundException {
         findFile();
         quickSort(magicArray, 0, magicArray.length - 1);
-        String x = "Robe";
-        //int result = linear(magicArray, "Robe");
-        int result = Search.binary(magicArray, x);
-        System.out.println("Item is located at index: " + result);
+        //String x = "Robe";
+        int result1 = linear(magicArray, "Robe");
+        System.out.println("Item is located at index: " + result1);
+        System.out.println("Count is: " + linearComparisons);
+        //int result = binary(magicArray, x);
+        //System.out.println("Item is located at index: " + result);
+        //System.out.println("Count is: " + comparisons);
     }
 }
