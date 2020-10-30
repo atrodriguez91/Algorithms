@@ -50,7 +50,10 @@ public class HashTableArray<T> {
         ArrayValue.next = newItem;
     }
 
-    
+    // The method to retrieve a value from a given
+    // key. Undergoes the hash to compare it to the 
+    // Hash index for retreival. Checks to see if the 
+    // key is good and if so retrieves the value. 
     public int get(String key) {
         moreComparions++;
         int value = 0;
