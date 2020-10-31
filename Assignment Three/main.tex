@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT 435
+% Fall 2020
+% Lab Three
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper, 10pt,DIV=13]{scrartcl} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[lined,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+
+\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 422N.111 - Fall 2020 - Dr. Labouseur} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Assignment Three  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Anthony Rodriguez \\ \normalsize Anthony.rodriguez2@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   start 
+%---------------------------------------------------------------------------------------- 
+\section{Comparisons}
+\bigskip
+\begin{center}
+ \begin{tabular}{||c c c ||} 
+ \hline
+ Linear Search & Binary Search & Hashtable Search \\ [0.5ex] 
+ \hline\hline
+ AVG: 337 & AVG: 17 & AVG: 11 \\ 
+\hline\hline
+ Total: 13444 & Total: 740 & Total: 501 \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Run Time}
+\bigskip
+\begin{enumerate}
+   \item Linear Search [ BEST: $O(1)$, AVG: $O(n/2)$, WORST: $O(n)$ ]
+   \begin{itemize}
+     \item The worst case of Linear Search can be explained due to the fact that n-elements in an array, with the most being the entirety of the array, would require sequential comparisons for the furthest element that may be searched. In other words, if the search is for the very last element, it would require an iteration through the array to the last index. Because there is no jumping or moving to other indices based upon current selection, the only direction to go is forward. 
+   \end{itemize}
+   \bigskip
+   \item Binary Search [ BEST: $O(1)$, AVG:  $O(logn)$, WORST: $O(logn)$ ]
+   \begin{itemize}
+       \item Because binary doesn't require iteration through the entire array, this results in asymptotic runtimes fare better than linear. Unlike the former, there are several actions that can be taken during runtime. Due to binary dividing the given array into halves, it disregards large amounts of irrelevant data. In a few comparisons, the given array is shortened enough to increase the likelihood of finding the correct element. It follows the same principle of divide and conquer and utilizes subsets versus the whole. 
+   \end{itemize}
+   \bigskip
+    
+   \item Hash Table Search [ AVG: $O(1)$, WORST:$O(n)$  ]
+    \begin{itemize}
+        \item The reason why Hash Tables experience their worse case is due to the potential of containing a large amount of chains. Though this can be argued that this is a rare phenomenon. In this case, since only a few may chain, Hash Tables experience constant time complexity and runtime.   
+    \end{itemize}
+    \bigskip
+      
+    
+\end{enumerate}
+
+
+\end{document}
