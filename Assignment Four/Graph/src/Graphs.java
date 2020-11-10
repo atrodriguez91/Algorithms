@@ -22,7 +22,16 @@ public class Graphs {
         return test;
     
     }
-    
+    public static void findVertex(String[] arr) throws FileNotFoundException {
+        findFile();
+        for (int i = 0; i < test.length; i++) {
+            if (test[i].contains("add vertex")) {
+                test[i] = test[i].replaceAll("[^0-9]", " ");
+                System.out.println(Arrays.asList(test[i].trim().split(" ")));
+            }
+            
+        }
+    }
   
 
     public static void main(String[] args) throws Exception {
