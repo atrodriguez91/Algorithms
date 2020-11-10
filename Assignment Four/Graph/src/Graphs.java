@@ -32,10 +32,21 @@ public class Graphs {
             
         }
     }
+
+    public static void findEdges(String[] arr) throws FileNotFoundException {
+        findFile();
+        for (int i = 0; i < test.length; i++) {
+            if (test[i].contains("add edge")) {
+                test[i] = test[i].replaceAll("[^0-9]", " ");
+                System.out.println(Arrays.asList(test[i].trim().split(" ")));
+            }
+            
+        } 
+    }
   
 
     public static void main(String[] args) throws Exception {
-        findVertex(test);
+        findEdges(test);
         
     }
 }
