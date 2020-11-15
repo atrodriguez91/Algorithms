@@ -16,7 +16,7 @@ public class Graphs {
     public static ArrayList<Integer> numList = new ArrayList<Integer>();
     public static int[][] matrix;
     public static boolean[][] isMatrix;
-    
+
     public void Graph(int nodes, boolean directed, boolean weighted) {
         matrix = new int[nodes][nodes];
         isMatrix = new boolean[nodes][nodes];
@@ -33,6 +33,17 @@ public class Graphs {
 
     }
 
+    public void addEdge(int source, int destination) {
+        int valueToAdd = 1;
+        
+        matrix[destination][source] = valueToAdd;
+        isMatrix[source][destination] = true;
+
+        
+        matrix[destination][source] = valueToAdd;
+        isMatrix[destination][source] = true;
+        
+    }
     
 
 
