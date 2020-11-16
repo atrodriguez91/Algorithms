@@ -11,6 +11,7 @@ public class DFSLinked {
 
     // I'm cheating here with the Linked List but I'm running out of time...
     // I understand if I lose points here.
+    // Credits: Textbook / class slides alongside a example from GeeksForGeeks.
     public DFSLinked(Integer v) {
         vertices = v;
         adjList = new LinkedList[v];
@@ -83,7 +84,7 @@ public class DFSLinked {
           g3.addEdge(a3.get(i), b3.get(i));
         }  
         System.out.println("DFS Traversal");
-        g3.dfsStart(r.fourthGraphV(r.getVertex(r.findFile())).get(0));
+        g3.dfsStart(r.fourthGraphV(r.getVertex(r.findFile())).get(50));
 
         System.out.println("\n==========================================\n");
         // GRAPH 5
