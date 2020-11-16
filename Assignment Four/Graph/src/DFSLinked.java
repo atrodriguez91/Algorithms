@@ -70,5 +70,25 @@ public class DFSLinked {
           g2.addEdge(a2.get(i), b2.get(i));
         } 
         g2.dfsStart(r.thirdGraphV(r.getVertex(r.findFile())).get(62));
+
+        System.out.println("\n==========================================\n");
+        // GRAPH 4
+        DFSLinked g3 = new DFSLinked(r.fourthGraphV(r.getVertex(r.findFile())).size() + 1);
+        List<Integer> a3 = r.fourthGraphE(r.getEdgesFirst(r.findFile()));
+        List<Integer> b3 = r.fourthGraphE(r.getEdgesSecond(r.findFile()));
+        for (int i = 0; i < 72; i++) {
+          g3.addEdge(a3.get(i), b3.get(i));
+        }  
+        g3.dfsStart(r.fourthGraphV(r.getVertex(r.findFile())).get(0));
+
+        System.out.println("\n==========================================\n");
+        // GRAPH 5
+        DFSLinked g4 = new DFSLinked(r.fifthGraphV(r.getVertex(r.findFile())).size() + 1);
+        List<Integer> a4 = r.fifthGraphE(r.getEdgesFirst(r.findFile()));
+        List<Integer> b4 = r.fifthGraphE(r.getEdgesSecond(r.findFile()));
+        for (int i = 0; i < 25; i++) {
+          g4.addEdge(a4.get(i), b4.get(i));
+        } 
+        g4.dfsStart(r.fifthGraphV(r.getVertex(r.findFile())).get(0));
     }
 }
