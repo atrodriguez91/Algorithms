@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class BTS {
     // Credit: Examples from textbook / YouTube and GeeksForGeeks.com.
+    // Youtube: mycodeschool's channel, video: Data structures: Binary Search Tree. <- EXCELLENT! 
     String[] magicFile;
     
     public String[] findFile() throws FileNotFoundException {
@@ -20,7 +21,7 @@ public class BTS {
         return magicFile;
 
     }
-
+    // Node creation.
     public static class Node {
         String data;
         Node left, right;
@@ -32,7 +33,7 @@ public class BTS {
         temp.left = temp.right = null;
         return temp;
     }
-
+    // Counter for searches. Placed where a comparison is being done. 
     static int count = 0;
     public static boolean search(Node root, String target) {
         while (root != null) {
@@ -49,7 +50,7 @@ public class BTS {
         }
         return false;
     }
-
+    // Insertion of the initial array. 
     public static Node insert(Node Node, String data) {
         if (Node == null) {
             return newN(data);
@@ -67,7 +68,8 @@ public class BTS {
         
         String[] m = b.findFile();
         Node root = null;
-        root = insert(root, "Sword Scabbard of Hiding");
+        root = insert(root, "Sword Scabbard of Hiding");// <- chosen at random. 
+        // Adding the file into the BST.
         for (int i = 0; i < m.length; i++) {
             insert(root, m[i]);
         }
@@ -82,11 +84,12 @@ public class BTS {
         "Bowl of Purity", "Eyes of doom", "Dragon Cloak", "Blade", "Belt of Keeping", 
         "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
         "Sword of Life"};
-        
+        //Searching for each target
         for (int i = 0; i < randomList.length; i++) {
             search(root, randomList[i]);
 
         }
+        // Average computation below.
         System.out.println(count);
         System.out.println("Overall AVG is: " + count / 42);
         
