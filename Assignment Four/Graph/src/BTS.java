@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class BTS {
 
     String[] magicFile;
@@ -19,8 +20,7 @@ public class BTS {
         return magicFile;
 
     }
-}
 
-    public static void main(String[] args) {
+
 
 }
