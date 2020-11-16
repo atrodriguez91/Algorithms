@@ -21,76 +21,56 @@ public class BTS {
 
     }
 
-    public class Link {
-        String target;
-        Link left, right;
-        public Link(String item) {
-            target = item;
-            left = right = null;
-        }
+    public static class Node {
+        String data;
+        Node left, right;
     }
 
-    Link root;
-
-
-    public BTS() {
-        root = null; 
+    public static Node newN(String item) {
+        Node temp = new Node();
+        temp.data = item;
+        temp.left = temp.right = null;
+        return temp;
     }
 
-    public void insert(String target) {
-        root = insertItem(root, target);
+    static int count = 0;
+    public static boolean search(Node root, String target) {
+        while (root != null) {
+            if (target.compareTo(root.data) > 0) {
+                root = root.right;
+                count++;
+            } else if (target.compareTo(root.data) < 0) {
+                root = root.left;
+                count++;
+            } else {
+                return true;
+            }
+            
+        }
+        return false;
     }
 
-    Link insertItem(Link root, String target) {
-        if (root == null) {
-            root = new Link(target);
-            return root;
+    public static Node insert(Node Node, String data) {
+        if (Node == null) {
+            return newN(data);
         }
-
-        if (target.compareTo(target) < 0) {
-            root.left = insertItem(root.left, target);
-        } else if (target.compareTo(root.target) > 0) {
-            root.right = insertItem(root.right, target);
+        if (data.compareTo(Node.data) < 0) {
+            Node.left = insert(Node.left, data);
+        } else if (data.compareTo(Node.data) > 0) {
+            Node.right = insert(Node.right, data);
         }
-        return root;
-    }
- 
-    public void check() {
-        checkItem(root);
-    }
-
-    public void checkItem(Link root) {
-        if (root != null) {
-            checkItem(root.left);
-            System.out.println(root.target);
-            checkItem(root.right);
-        }
-    }
-
-    public Link conjure(Link root, String target) {
-        if (root == null || root.target == target) {
-            return root;
-        }
-        if (root.target.compareTo(target) < 0) {
-            return conjure(root.right, target);
-        }
-        return conjure(root.left, target);
+        return Node;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        BTS log = new BTS();
-        String[] magicLog = log.findFile();
-
-        log.insert("something");
-        log.insert("test");
-        log.insert("cool");
-        log.insert("hello");
-
-        log.check();
-
-        log.conjure(log.root, " ");
-        log.check();
+        BTS b = new BTS();
         
+        String[] m = b.findFile();
+        Node root = null;
+        root = insert(root, "Sword Scabbard of Hiding");
+        for (int i = 0; i < m.length; i++) {
+            insert(root, m[i]);
+        }
 
         String[] randomList = {"Ring of Sin' Sona","Chaos diamond","Sling of Slugging",
         "Instant Armour and Ring", "Cup of Change", "Darkskull", "Aerewens armor",
@@ -103,11 +83,13 @@ public class BTS {
         "Amber Spider", "Tome of leadership and influence", "Morning Star", "Gem of seeing", 
         "Sword of Life"};
         
-        //for (int i = 0; i < randomList.length; i++) {
-            
-       // }
-       //log.conjure(log.root., "Candle of truth" );
-        //log.check();
+        for (int i = 0; i < randomList.length; i++) {
+            search(root, randomList[i]);
+
+        }
+        System.out.println(count);
+        System.out.println("Overall AVG is: " + count / 42);
+        
         
     }
 
