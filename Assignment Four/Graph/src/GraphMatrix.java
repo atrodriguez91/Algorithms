@@ -24,7 +24,7 @@ public class GraphMatrix {
     public String toString() {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < vertices; i++) {
-            string.append(" : ");
+            string.append(i + " : ");
             for (boolean j : adjMatrix[i]) {
                 string.append((j ? 1 : 0) + " ");
             }
