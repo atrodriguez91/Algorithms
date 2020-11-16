@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Similar to matrix, using a 2D arraylist to represent the graph.
+// Credit: GeeksforGeeks for structure and general worflow. 
 public class AdjacentList {
     public static void addEdge(ArrayList<ArrayList<Integer>> adj, Integer i, Integer j) {
         adj.get(i).add(j);
