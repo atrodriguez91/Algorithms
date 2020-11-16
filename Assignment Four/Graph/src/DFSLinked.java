@@ -49,6 +49,7 @@ public class DFSLinked {
         for (int i = 0; i < 11; i++) {
           g.addEdge(a.get(i), b.get(i));
         }
+        System.out.println("DFS Traversal");
         g.dfsStart(r.firstGraphV(r.getVertex(r.findFile())).get(0));
 
         System.out.println("\n==========================================\n");
@@ -59,6 +60,7 @@ public class DFSLinked {
         for (int i = 0; i < 28; i++) {
           g1.addEdge(a1.get(i), b1.get(i));
         } 
+        System.out.println("DFS Traversal");
         g1.dfsStart(r.secondGraphV(r.getVertex(r.findFile())).get(7));
 
         System.out.println("\n==========================================\n");
@@ -69,6 +71,7 @@ public class DFSLinked {
         for (int i = 0; i < 62; i++) {
           g2.addEdge(a2.get(i), b2.get(i));
         } 
+        System.out.println("DFS Traversal");
         g2.dfsStart(r.thirdGraphV(r.getVertex(r.findFile())).get(62));
 
         System.out.println("\n==========================================\n");
@@ -79,6 +82,7 @@ public class DFSLinked {
         for (int i = 0; i < 72; i++) {
           g3.addEdge(a3.get(i), b3.get(i));
         }  
+        System.out.println("DFS Traversal");
         g3.dfsStart(r.fourthGraphV(r.getVertex(r.findFile())).get(0));
 
         System.out.println("\n==========================================\n");
@@ -89,6 +93,7 @@ public class DFSLinked {
         for (int i = 0; i < 25; i++) {
           g4.addEdge(a4.get(i), b4.get(i));
         } 
+        System.out.println("DFS Traversal");
         g4.dfsStart(r.fifthGraphV(r.getVertex(r.findFile())).get(0));
     }
 }
