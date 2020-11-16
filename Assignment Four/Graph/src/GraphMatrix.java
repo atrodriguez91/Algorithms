@@ -2,7 +2,11 @@ package src;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-
+// Graphical matrix for file input.
+// Credit: GeeksforGeeks for basic matrix structure. 
+// Pretty straight forward in terms of implementing.
+// Much more difficult to format it to fit with 
+// the file input. 
 public class GraphMatrix {
     public boolean adjMatrix[][];
     public Integer vertices;
@@ -11,12 +15,12 @@ public class GraphMatrix {
         this.vertices = vertices;
         adjMatrix = new boolean[vertices][vertices];
     }
-
+    // Method to introduce both edges into 2D array. 
     public void addEdge(Integer i, Integer j) {
         adjMatrix[i][j] = true;
         adjMatrix[j][i] = true;
     }
-
+    // Print of the array. 
     public String toString() {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < vertices; i++) {
