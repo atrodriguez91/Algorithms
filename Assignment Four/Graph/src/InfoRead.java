@@ -15,7 +15,7 @@ public class InfoRead {
     ArrayList<String> edgeIntList = new ArrayList<String>();
     ArrayList<String> edgeIntList1 = new ArrayList<String>();
     ArrayList<Integer> vertexIntList = new ArrayList<Integer>();
-
+    // File reader 
     public String[] findFile() throws FileNotFoundException {
         Scanner graphScan = new Scanner(new File("graph1.txt"));
         ArrayList<String> graphList = new ArrayList<String>();
