@@ -23,13 +23,23 @@ public class GreedySpice {
             } 
         }
         return b;
-        
+    }
+
+    public ArrayList<String> findKnapsack(String[] preparedSpice) {
+        ArrayList<String> c = new ArrayList<String>();
+        for (int i = 0; i < preparedSpice.length; i++) {
+            if (preparedSpice[i].contains("knapsack ")) {
+                c.add(preparedSpice[i]);
+            }
+        }
+        return c;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         GreedySpice s = new GreedySpice();
         String[] a = s.spiceFinder();
         ArrayList<String> b = s.findSpiceInfo(a);
-        System.out.println(b);
+        ArrayList<String> c = s.findKnapsack(a);
+        System.out.println(c);
     }
 }
