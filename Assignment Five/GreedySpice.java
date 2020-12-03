@@ -15,14 +15,38 @@ public class GreedySpice {
         return preparedSpice;
     }
 
-    public ArrayList<String> findSpiceInfo(String[] preparedSpice) {
-        ArrayList<String> b = new ArrayList<String>();
+    public void findSpiceInfo(String[] preparedSpice) {
+        ArrayList<String> red = new ArrayList<String>();
+        ArrayList<String> green = new ArrayList<String>();
+        ArrayList<String> blue = new ArrayList<String>();
+        ArrayList<String> orange = new ArrayList<String>();
+        String [] test;
+        String totalPrice = "";
         for (int i = 0; i < preparedSpice.length; i++) {
-           if (preparedSpice[i].contains("spice name = ")) {
-                b.add(preparedSpice[i]);
-            } 
+            if(preparedSpice[i].endsWith(";")) {
+                //System.out.println(preparedSpice[i]);
+                if(preparedSpice[i].substring(i).contains("red")) {
+                    red.add(preparedSpice[i]);
+                    test = new String[preparedSpice.length];
+                    test[i] = preparedSpice[i];
+                   
+                    //System.out.println(test[i]);
+                } else if (preparedSpice[i].substring(i).contains("green")) {
+                    green.add(preparedSpice[i]);
+                    //System.out.println(green);
+                } else if (preparedSpice[i].substring(i).contains("blue")) {
+                    blue.add(preparedSpice[i]);
+                    //System.out.println(blue);
+                } else if (preparedSpice[i].substring(i).contains("orange")) {
+                    orange.add(preparedSpice[i]);
+                    //System.out.println(orange);
+                }
+            }
         }
-        return b;
+        for (int i = 0; i < test.length; i++) {
+            
+        }
+        
     }
 
     public ArrayList<String> findKnapsack(String[] preparedSpice) {
@@ -35,11 +59,10 @@ public class GreedySpice {
         return c;
     }
 
+
     public static void main(String[] args) throws FileNotFoundException {
         GreedySpice s = new GreedySpice();
         String[] a = s.spiceFinder();
-        ArrayList<String> b = s.findSpiceInfo(a);
-        ArrayList<String> c = s.findKnapsack(a);
-        System.out.println(c);
+        s.findSpiceInfo(a);
     }
 }
