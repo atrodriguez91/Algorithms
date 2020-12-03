@@ -43,9 +43,7 @@ public class GreedySpice {
                 }
             }
         }
-        for (int i = 0; i < test.length; i++) {
-            
-        }
+        
         
     }
 
