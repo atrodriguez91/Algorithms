@@ -72,6 +72,8 @@ public class GreedySpice {
     
     }
 
+    
+
     public static void main(String[] args) throws FileNotFoundException {
         GreedySpice s = new GreedySpice();
         String[] a = s.spiceFinder();
