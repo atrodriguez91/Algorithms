@@ -16,38 +16,21 @@ public class GreedySpice {
         return preparedSpice;
     }
 
-    public String findSpiceInfo(String[] preparedSpice) {
-        String test = "";
-        String test1 = "";
-        String test2 = "";
-        String test3 = "";
+    public String findSpiceInfo(String[] preparedSpice, String color) {
+        String spice = "";
         for (int i = 0; i < preparedSpice.length; i++) {
             if(preparedSpice[i].endsWith(";")) {
                 //System.out.println(preparedSpice[i]);
-                if(preparedSpice[i].substring(i).contains("red")) {
-                    
-                    //test = preparedSpice[i];
-                    //return test;
-                } else if (preparedSpice[i].substring(i).contains("green")) {
-                    
-                    test1 = preparedSpice[i];
-                    return test1;
-                } else if (preparedSpice[i].substring(i).contains("blue")) {
-                    
-                    //test2 = preparedSpice[i];
-                    //return test2;
-                } else if (preparedSpice[i].substring(i).contains("orange")) {
-                    
-                    //test3 = preparedSpice[i];
-                    //return test3;
-                }
+                if(preparedSpice[i].substring(i).contains(color)) {
+                    spice = preparedSpice[i];
+                    return spice;
+                } 
             }
         }
-        return test1;
-        
+        return spice;
     }
     
-    public double findPrice(String string) {
+    public double findPrice(String string, int flag) {
 
         String delim = "[ ;]";
         double totalPrice = 0;
@@ -55,7 +38,7 @@ public class GreedySpice {
         for (int i = 0; i < price.length; i++) {
             if (price[i].contains("total_price")) {
                 //System.out.println(price[i + 2]);
-                totalPrice = Double.parseDouble(price[i + 2]);
+                totalPrice = Double.parseDouble(price[i + flag]);
             }
         }
         return totalPrice;
@@ -78,7 +61,9 @@ public class GreedySpice {
         
         for (int i = 0; i < preparedSpice.length; i++) {
             if (preparedSpice[i].contains("knapsack capacity")) {
-                preparedSpice[i] = preparedSpice[i].replaceAll("[^0-9]", "");
+                if (preparedSpice[i].substring(i).contains("1")) {
+                    System.out.println(preparedSpice[i]);
+                }
             }
         }
         
@@ -88,9 +73,8 @@ public class GreedySpice {
     public static void main(String[] args) throws FileNotFoundException {
         GreedySpice s = new GreedySpice();
         String[] a = s.spiceFinder();
-        String b = s.findSpiceInfo(a);
-        //System.out.println(s.findPrice(b));
-        //System.out.println(s.findQty(b));
-        s.findKnapsack(a);
+        
+        
+        System.out.println(s.findPrice(s.findSpiceInfo(a, "orange"), 2));
     }
 }
