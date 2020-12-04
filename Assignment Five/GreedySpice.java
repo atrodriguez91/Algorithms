@@ -56,17 +56,19 @@ public class GreedySpice {
         return totQty;
     }
 
-    public void findKnapsack(String[] preparedSpice) {
-        
+    public int findKnapsack(String[] preparedSpice, String selection) {
+        String capacity = "";
+        int capacity1 = 0;
         
         for (int i = 0; i < preparedSpice.length; i++) {
             if (preparedSpice[i].contains("knapsack capacity")) {
-                if (preparedSpice[i].substring(i).contains("1")) {
-                    System.out.println(preparedSpice[i]);
+                if (preparedSpice[i].substring(i).contains(selection)) {
+                    capacity = preparedSpice[i].replaceAll("[ =a-z;]", "");
+                    capacity1 = Integer.parseInt(capacity);
                 }
             }
         }
-        
+        return capacity1;
     
     }
 
@@ -75,6 +77,8 @@ public class GreedySpice {
         String[] a = s.spiceFinder();
         
         
-        System.out.println(s.findPrice(s.findSpiceInfo(a, "orange"), 2));
+        System.out.println(s.findPrice(s.findSpiceInfo(a, "blue"), 2)); //Price
+        System.out.println(s.findQty(s.findSpiceInfo(a, "blue")));      //Quantity
+        System.out.println(s.findKnapsack(a, "6"));
     }
 }
