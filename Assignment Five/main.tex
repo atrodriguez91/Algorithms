@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT 435
+% Fall 2020
+% Lab Five
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper, 10pt,DIV=13]{scrartcl} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[lined,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+
+\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 422N.111 - Fall 2020 - Dr. Labouseur} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Assignment Five  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Anthony Rodriguez \\ \normalsize Anthony.rodriguez2@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   start 
+%---------------------------------------------------------------------------------------- 
+\section{Asymptotic Run Time}
+\bigskip
+
+\begin{enumerate}
+   \item SSSP [ $O(V*E)$ ]
+   \begin{itemize}
+     \item V is the number of vertices and E are the number of edges. When the graph is traversed it results in $O(V^2)$.Upon graph completion the run time becomes $O(V^3)$ because a single vertex can be traversed more than once. This is also justified by combining the original run time with the completed run time $O(V^2)$ * $O(V*E)$. Since we do not care for the constant, in this case E, we throw it away leaving us with the above run time. 
+   \end{itemize}
+   \bigskip
+   \item Fractional Knapsack [ $O(nlogn)$ ]
+   \begin{itemize}
+       \item Knapsack shares similarities with previous algorithms indicative by the division being done. If n items were already somewhat sorted, the run time of the inner loop is $O(n)$. Since the major essence of the algorithm is Price / Weight, very much like the MergeSort, this is a divide and consquer approach to a solution. 
+   \end{itemize}
+   \bigskip
+    
+  
+    \bigskip
+      
+    
+\end{enumerate}
+
+
+\end{document}
