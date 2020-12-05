@@ -62,7 +62,7 @@ public class Greedy {
         }
     }
 
-    // Driver code
+    // Driver code for fractional knapsack here
     public static void main(String[] args) throws FileNotFoundException {
 
         GreedySpice greed = new GreedySpice();
