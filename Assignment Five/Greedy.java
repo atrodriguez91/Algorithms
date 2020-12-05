@@ -7,7 +7,8 @@ import java.util.Comparator;
 // Greedy approach 
 public class Greedy {
     // Credits for flow and error checking from GeeksforGeeks.com. 
-    // References to textbook for clarity. 
+    // References to textbook for clarity.
+    // Youtube Channel: Abdul Bari. 
     private static double getMaxValue(int[] wt, int[] val, int capacity) {
         ItemValue[] iVal = new ItemValue[wt.length];
 
