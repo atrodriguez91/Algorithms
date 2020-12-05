@@ -122,5 +122,21 @@ class SSSPBellmanFord {
         graph2.edge[i].w = c2[i];
     }
     SSSPBellmanFord.BellmanFordProc(graph2, 1);
+
+    int V3 = 8; // Total vertices
+    int E3 = 12; // Total Edges
+
+    SSSPBellmanFord graph3 = new SSSPBellmanFord(V3, E3);
+
+    int[] a3 = convertIntegers(n.fourthGraphE(n.getEdgesFirst(n.findFile())));
+    int[] b3 = convertIntegers(n.fourthGraphE(n.getEdgesSecond(n.findFile())));
+    int[] c3 = convertIntegers(n.fourthGraphE(n.getEdgesWeight(n.findFile())));
+
+    for (int i = 0; i < E3; i++) {
+        graph3.edge[i].s = a3[i];
+        graph3.edge[i].d = b3[i];
+        graph3.edge[i].w = c3[i];
+    }
+    SSSPBellmanFord.BellmanFordProc(graph3, 1);
     }
   }
