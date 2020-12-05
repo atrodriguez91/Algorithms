@@ -90,5 +90,37 @@ class SSSPBellmanFord {
         graph.edge[i].w = c[i];
     }
     SSSPBellmanFord.BellmanFordProc(graph, 2);
+
+    int V1 = 8; 
+    int E1 = 12; 
+
+    SSSPBellmanFord graph1 = new SSSPBellmanFord(V1, E1);
+
+    int[] a1 = convertIntegers(n.secondGraphE(n.getEdgesFirst(n.findFile())));
+    int[] b1 = convertIntegers(n.secondGraphE(n.getEdgesSecond(n.findFile())));
+    int[] c1 = convertIntegers(n.secondGraphE(n.getEdgesWeight(n.findFile())));
+
+    for (int i = 0; i < E1; i++) {
+        graph1.edge[i].s = a1[i];
+        graph1.edge[i].d = b1[i];
+        graph1.edge[i].w = c1[i];
+    }
+    SSSPBellmanFord.BellmanFordProc(graph1, 1);
+
+    int V2 = 8; 
+    int E2 = 12; 
+
+    SSSPBellmanFord graph2 = new SSSPBellmanFord(V2, E2);
+
+    int[] a2 = convertIntegers(n.thirdGraphE(n.getEdgesFirst(n.findFile())));
+    int[] b2 = convertIntegers(n.thirdGraphE(n.getEdgesSecond(n.findFile())));
+    int[] c2 = convertIntegers(n.thirdGraphE(n.getEdgesWeight(n.findFile())));
+
+    for (int i = 0; i < E2; i++) {
+        graph2.edge[i].s = a2[i];
+        graph2.edge[i].d = b2[i];
+        graph2.edge[i].w = c2[i];
+    }
+    SSSPBellmanFord.BellmanFordProc(graph2, 1);
     }
   }
