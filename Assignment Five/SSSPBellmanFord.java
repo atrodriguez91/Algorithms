@@ -72,4 +72,23 @@ class SSSPBellmanFord {
         }
         return ret;
     }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        SSSP n = new SSSP();
+    int V = 6;
+    int E = 10; 
+
+    SSSPBellmanFord graph = new SSSPBellmanFord(V, E);
+
+    int[] a = convertIntegers(n.firstGraphE(n.getEdgesFirst(n.findFile())));
+    int[] b = convertIntegers(n.firstGraphE(n.getEdgesSecond(n.findFile())));
+    int[] c = convertIntegers(n.firstGraphE(n.getEdgesWeight(n.findFile())));
+
+    for (int i = 0; i < E; i++) {
+        graph.edge[i].s = a[i];
+        graph.edge[i].d = b[i];
+        graph.edge[i].w = c[i];
+    }
+    SSSPBellmanFord.BellmanFordProc(graph, 2);
+    }
   }
