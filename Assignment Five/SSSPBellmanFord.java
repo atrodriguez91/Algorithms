@@ -2,7 +2,9 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 class SSSPBellmanFord {
-
+    // Credits to GeeksforGeeks for explanation and code fludity. 
+    // Don't think it's working properly, my numerial values are off. 
+    // Might have lost a (-) sign when ripping the info from file. 
     class Edge {
         int s;
         int d; 
@@ -32,7 +34,7 @@ class SSSPBellmanFord {
         int dist[] = new int[V];
 
         for (int i = 0; i < V; ++i)
-            dist[i] = Integer.MAX_VALUE;
+            dist[i] = Integer.MAX_VALUE; // <- When would you ever need to use other than this precise use case?
 
         dist[s] = 0;
 
