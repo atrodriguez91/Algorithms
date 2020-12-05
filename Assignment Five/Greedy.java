@@ -1,5 +1,5 @@
 
-// Java program to solve fractional Knapsack Problem 
+
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -22,8 +22,10 @@ public class Greedy {
                 return o2.cost.compareTo(o1.cost);
             }
         });
-
-        double totalValue = 0d;
+        // This algorithm mimicks the quick/merge sort algorithms
+        // earlier in the semester. Above there is a sort that
+        // causes the algorithm to run O(n).
+        double totalValue = 0;
 
         for (ItemValue i : iVal) {
 
@@ -31,31 +33,30 @@ public class Greedy {
             double curVal = (double) i.val;
 
             if (capacity - curWt >= 0) {
-                // this weight can be picked while
                 capacity = capacity - curWt;
                 totalValue += curVal;
             } else {
-                // item cant be picked whole
                 double fraction = ((double) capacity / (double) curWt);
                 totalValue += (curVal * fraction);
                 capacity = (int) (capacity - (curWt * fraction));
                 break;
             }
         }
-
+        // Above is how we stuff the back, hence the fractional. 
         return totalValue;
     }
 
-    // item value class
     static class ItemValue {
         Double cost;
         double wt, val, ind;
 
-        // item value function
         public ItemValue(int wt, int val, int ind) {
             this.wt = wt;
             this.val = val;
             this.ind = ind;
+            // The division here is ultimately what gives the fractional
+            // knapsack the O(nlogn) asymptotic run time. With each
+            // division the algorithm will tackle each portion. 
             cost = (double) val / (double) wt;
         }
     }
