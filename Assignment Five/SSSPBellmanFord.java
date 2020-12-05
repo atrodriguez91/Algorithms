@@ -72,9 +72,9 @@ class SSSPBellmanFord {
         }
         return ret;
     }
-
+    // Driver below for SSSP
     public static void main(String[] args) throws FileNotFoundException {
-        SSSP n = new SSSP();
+    SSSP n = new SSSP();
     int V = 6;
     int E = 10; 
 
