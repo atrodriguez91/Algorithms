@@ -45,4 +45,22 @@ class SSSPBellmanFord {
                     dist[v] = dist[u] + w;
             }
         }
+
+        for (int j = 0; j < E; ++j) {
+            int u = graph.edge[j].s;
+            int v = graph.edge[j].d;
+            int w = graph.edge[j].w;
+            if (dist[u] != Integer.MAX_VALUE && dist[u] + w < dist[v]) {
+                System.out.println("SSSPBellmanFord contains negative w cycle");
+                return;
+            }
+        }
+        printSolution(dist, V);
+    }
+
+    static void printSolution(int dist[], int V) {
+        System.out.println("Vertex Distance from Source");
+        for (int i = 0; i < V; ++i)
+            System.out.println(i + " " + "cost is" + " " + dist[i] + "; " + "path: " );
+    }
   }
