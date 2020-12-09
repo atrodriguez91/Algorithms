@@ -72,4 +72,15 @@ public class TestingPool {
         }
         return test.testingPool;
     }
+
+    public static void populationPool(int groups) {
+        TestingPool test = new TestingPool();
+        int people = groups * 8;
+        while (groups > 0) {
+            int testsDone = runPooledTest(randomInfection(test.testingPool));
+            test.totalTests = testsDone + test.totalTests;
+            groups = groups - 1;
+        }
+        System.out.println("Total tests used per " + people + " people: " + test.totalTests);
+    }
 }
