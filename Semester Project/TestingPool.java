@@ -30,37 +30,45 @@ public class TestingPool {
             int groupA[] = Arrays.copyOfRange(testingPool, 0, len / 2); // Separation of groups from main
             int groupB[] = Arrays.copyOfRange(testingPool, len / 2, len); // into 2 sub groups
             for (int i = 0; i < groupA.length; i++) {
-                if (groupA[i] == test.infected && groupB[i] == test.notInfected) {
-                    test.testCount++;
-                    test.isInfected = true;
+                if (groupA[i] == test.infected && groupB[i] == test.notInfected) { // Condition if Group A is infected
+                    test.testCount++;                                              // and Group B is not. We test the  
+                    test.isInfected = true;                                        // subgroup again. 
                     for (int j = 0; j < groupA.length; j++) {
-                        test.testCount++;
+                        test.testCount++;                                          // Group A is then tested individually.  
                     }
                     System.out.println("Case (2): 1 infection found in subgroup A, " + test.testCount + " tests used.");
                     break;
-                } else if (groupA[i] == test.notInfected && groupB[i] == test.infected) {
-                    test.testCount++;
-                    for (int j = 0; j < groupB.length; j++) {
-                        test.testCount++;
+                    // 7 tests will be used here: 1 for main group, 1 for negative subgroup,
+                    // 1 for positive group, then a final 4 every indiviual of the positive group.
+                } else if (groupA[i] == test.notInfected && groupB[i] == test.infected) { // Condition to check the inverse
+                    test.testCount++;                                                     // of the above. 
+                    for (int j = 0; j < groupB.length; j++) { // Group B is tested 
+                        test.testCount++;                     // individually for positives. 
                         test.isInfected = true;
                     }
                     System.out.println("Case (2): 1 infection found in subgroup B, " + test.testCount + " tests used.");
                     break;
-                } else if (groupA[i] == test.infected && groupB[i] == test.infected) {
+                    // 7 tests will be used here: 1 for main group, 1 for negative subgroup,
+                    // 1 for positive group, then a final 4 every indiviual of the positive group.
+        // ==================== CASE 3 - IF BOTH GROUPS ARE INFECTED ==============================  
+                } else if (groupA[i] == test.infected && groupB[i] == test.infected) { // Both groups are infected 
                     test.isInfected = true;
                     test.testCount++;
-                    for (int j = 0; j < groupA.length; j++) {
+                    for (int j = 0; j < groupA.length; j++) { // All of Group A is tested again
                         test.testCount++;
                     }
-                    for (int j = 0; j < groupB.length; j++) {
+                    for (int j = 0; j < groupB.length; j++) { // All of Group B is tested again
                         test.testCount++;
                     }
                     System.out.println("Case (3): infection found in BOTH subgroups, " + test.testCount + " tests used.");
                     break;
                 }
             }
+        // ==================== CASE 1 - NO INFECTION IS FOUND ============================== 
         } else {
             System.out.println("Case (1): No infections, " + test.testCount + " test used.");
+            // By default, if no infections were found with the main group, only 1 test 
+            // will be used.
         }
         return test.testCount;
     }
