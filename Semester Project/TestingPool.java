@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class TestingPool {
     int[] testingPool; // Batch of 8 from population size
@@ -60,5 +61,15 @@ public class TestingPool {
             System.out.println("Case (1): No infections, " + test.testCount + " test used.");
         }
         return test.testCount;
+    }
+
+    public static int[] randomInfection(int[] arr) {
+        TestingPool test = new TestingPool();
+        Random rand = new Random();
+        test.testingPool = new int[8];
+        if (new java.util.Random().nextInt(6) == 1) {
+            test.testingPool[rand.nextInt(7)] = 1;
+        }
+        return test.testingPool;
     }
 }
