@@ -96,7 +96,7 @@ public class TestingPool {
         }
         System.out.println("Total tests used per " + people + " people: " + test.totalTests);
     }
-
+    // Main driver 
     public static void main(String[] args) {
         populationPool(125);
     }
