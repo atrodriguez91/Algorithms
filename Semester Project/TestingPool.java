@@ -43,8 +43,22 @@ public class TestingPool {
                     }
                     System.out.println("Case (2): 1 infection found in subgroup B, " + test.testCount + " tests used.");
                     break;
-                } 
+                } else if (groupA[i] == test.infected && groupB[i] == test.infected) {
+                    test.isInfected = true;
+                    test.testCount++;
+                    for (int j = 0; j < groupA.length; j++) {
+                        test.testCount++;
+                    }
+                    for (int j = 0; j < groupB.length; j++) {
+                        test.testCount++;
+                    }
+                    System.out.println("Case (3): infection found in BOTH subgroups, " + test.testCount + " tests used.");
+                    break;
+                }
             }
+        } else {
+            System.out.println("Case (1): No infections, " + test.testCount + " test used.");
         }
+        return test.testCount;
     }
 }
