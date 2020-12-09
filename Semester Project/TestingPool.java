@@ -11,6 +11,7 @@ public class TestingPool {
 
  // Pooled testing function algorithm
     public static int runPooledTest(int testingPool[]) {
+        // ==================== INITIAL TEST ==============================
         TestingPool test = new TestingPool();
         test.testCount = 1; // One test must be done for the initial large group
         for (int i = 0; i < testingPool.length; i++) {
@@ -23,10 +24,11 @@ public class TestingPool {
                 test.isInfected = false;
             }
         }
+        // ==================== IF INFECTION = TRUE, SPLIT THE GROUP INTO 2 ==============================
         if (test.isInfected == true) {
             int len = testingPool.length;
-            int groupA[] = Arrays.copyOfRange(testingPool, 0, len / 2);
-            int groupB[] = Arrays.copyOfRange(testingPool, len / 2, len);
+            int groupA[] = Arrays.copyOfRange(testingPool, 0, len / 2); // Separation of groups from main
+            int groupB[] = Arrays.copyOfRange(testingPool, len / 2, len); // into 2 sub groups
             for (int i = 0; i < groupA.length; i++) {
                 if (groupA[i] == test.infected && groupB[i] == test.notInfected) {
                     test.testCount++;
