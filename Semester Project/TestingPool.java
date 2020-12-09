@@ -72,24 +72,27 @@ public class TestingPool {
         }
         return test.testCount;
     }
-
+    // This function takes a group of 8, randomizing
+    // the placement of an infection. 
     public static int[] randomInfection(int[] arr) {
         TestingPool test = new TestingPool();
         Random rand = new Random();
         test.testingPool = new int[8];
-        if (new java.util.Random().nextInt(6) == 1) {
-            test.testingPool[rand.nextInt(7)] = 1;
-        }
-        return test.testingPool;
+        if (new java.util.Random().nextInt(6) == 1) { // Each group has roughly 16% chance of having an infection. 
+            test.testingPool[rand.nextInt(7)] = 1; // Since the infection rate is 2% per 1000, this equates to 20 people
+        }                                          // per the article. Since a batch of 8 people are being tested at a time,
+        return test.testingPool;                   // with a 16% chance of infection (0.16 * 125 groups = 20 people = 2% infection)
     }
-
+    // This function takes in a certain amount of groups
+    // and attempts the algorithm per group. Since 1 group
+    // is 8 people, the algorithm runs 125 times. 
     public static void populationPool(int groups) {
         TestingPool test = new TestingPool();
         int people = groups * 8;
         while (groups > 0) {
             int testsDone = runPooledTest(randomInfection(test.testingPool));
-            test.totalTests += testsDone;
-            groups -= 1;
+            test.totalTests += testsDone; // Adds the total amount of tests conducted
+            groups -= 1; // Counter that decrements the amount of groups left
         }
         System.out.println("Total tests used per " + people + " people: " + test.totalTests);
     }
