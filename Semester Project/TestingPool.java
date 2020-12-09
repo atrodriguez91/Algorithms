@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TestingPool {
     int[] testingPool; // Batch of 8 from population size
     int infected = 1; // If a sample if infected
@@ -20,6 +22,29 @@ public class TestingPool {
                 test.isInfected = false;
             }
         }
-        
+        if (test.isInfected == true) {
+            int len = testingPool.length;
+            int groupA[] = Arrays.copyOfRange(testingPool, 0, len / 2);
+            int groupB[] = Arrays.copyOfRange(testingPool, len / 2, len);
+            for (int i = 0; i < groupA.length; i++) {
+                if (groupA[i] == test.infected && groupB[i] == test.notInfected) {
+                    test.testCount++;
+                    test.isInfected = true;
+                    for (int j = 0; j < groupA.length; j++) {
+                        test.testCount++;
+                    }
+                    System.out.println("Case (2): 1 infection found in subgroup A, " + test.testCount + " tests used.");
+                    break;
+                } else if (groupA[i] == test.notInfected && groupB[i] == test.infected) {
+                    test.testCount++;
+                    for (int j = 0; j < groupB.length; j++) {
+                        test.testCount++;
+                        test.isInfected = true;
+                    }
+                    System.out.println("Case (2): 1 infection found in subgroup B, " + test.testCount + " tests used.");
+                    break;
+                } 
+            }
+        }
     }
 }
