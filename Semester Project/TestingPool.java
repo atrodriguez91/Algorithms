@@ -78,9 +78,13 @@ public class TestingPool {
         int people = groups * 8;
         while (groups > 0) {
             int testsDone = runPooledTest(randomInfection(test.testingPool));
-            test.totalTests = testsDone + test.totalTests;
-            groups = groups - 1;
+            test.totalTests += testsDone;
+            groups -= 1;
         }
         System.out.println("Total tests used per " + people + " people: " + test.totalTests);
+    }
+
+    public static void main(String[] args) {
+        populationPool(125);
     }
 }
